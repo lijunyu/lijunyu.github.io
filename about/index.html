@@ -348,47 +348,17 @@
 				}
 			});
 		</script>
-<pre><code>头顶的叶子把阳光挡起
-投下的影子摇晃记忆
-想象着此刻若能再相遇
-你会不会忘记了过去
+<blockquote>
+<p>头顶的叶子把阳光挡起<br>投下的影子摇晃记忆<br>想象着此刻若能再相遇<br>你会不会忘记了过去</p>
+<p>在这阳光肆虐的城市里<br>潜藏着另一个自己<br>谈天说地聊着都好风趣<br>关上了门自己怕自己</p>
+<p>我要找一个人会多残忍<br>不完整的交换不完整<br>我在这城市里等了又等<br>等待着下一次可能</p>
+<p>我要找一个人会多残忍<br>该启程的要怎么启程<br>我在荒芜的城住的安稳<br>等你找到下一个人</p>
+<p>在这阳光肆虐的城市里<br>潜藏着另一个自己<br>谈天说地聊着都好风趣<br>关上了门自己怕自己</p>
+<p>我要找一个人会多残忍<br>不完整的交换不完整<br>我在这城市里等了又等<br>等待着下一次可能</p>
+<p>我要找一个人会多残忍<br>该启程的要怎么启程<br>我在荒芜的城住的安稳<br>等你找到下一个人</p>
+<p>我要找一个人会多残忍<br>该启程的要怎么启程<br>我在荒芜的城住的安稳<br>等你找到下一个人<br>等你找到下一个人</p>
+</blockquote>
 
-在这阳光肆虐的城市里
-潜藏着另一个自己
-谈天说地聊着都好风趣
-关上了门自己怕自己
-
-我要找一个人会多残忍
-不完整的交换不完整
-我在这城市里等了又等
-等待着下一次可能
-
-我要找一个人会多残忍
-该启程的要怎么启程
-我在荒芜的城住的安稳
-等你找到下一个人
-
-在这阳光肆虐的城市里
-潜藏着另一个自己
-谈天说地聊着都好风趣
-关上了门自己怕自己
-
-我要找一个人会多残忍
-不完整的交换不完整
-我在这城市里等了又等
-等待着下一次可能
-
-我要找一个人会多残忍
-该启程的要怎么启程
-我在荒芜的城住的安稳
-等你找到下一个人
-
-我要找一个人会多残忍
-该启程的要怎么启程
-我在荒芜的城住的安稳
-等你找到下一个人
-等你找到下一个人
-</code></pre>
     
 
     
@@ -400,6 +370,30 @@
                 <!-- Post Comments -->
                 
                     
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key=""
+        data-url="http://yoursite.com/about/index.html"
+        data-title="关于我">
+    </div>
+    <!-- 多说评论框 end -->
+</div>
+
+
 
 
 
@@ -519,6 +513,33 @@
                     <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于我
+            </a>
+        </li>
+  	
+        <li>
+            <a href="/links/" title="小伙伴们">
+                
+                    <i class="material-icons sidebar-material-icons">group</i>
+                
+                小伙伴们
+            </a>
+        </li>
+  	
+        <li>
+            <a href="/gallery/" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">dashboard</i>
+                
+                图库
+            </a>
+        </li>
+  	
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
             </a>
         </li>
   	
@@ -661,8 +682,18 @@ It will not impact the appearance and can give developers a lot of support :)
                 document.write(fd.getFullYear());
             </script>
             &nbsp;Hexo
-        </div>
 
+        <div id="days"></div>
+        <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js">
+        //这里调用了公共库中现成的 js 文件，也可以直接调用站点中的 js 文件
+        </script>
+        <script>
+        	var begin = moment([2017,01,05]); //定义博客开始时间，从第0月开始算。。。。
+        	var now = moment(); //使用 moment() 获取当前时间
+            document.getElementById('days').innerHTML ="博客已运行 "+now.diff(begin,'days')+" 天"
+        // 使用 now.diff(begin,'days') 函数获取天数，这里天数考虑了闰年
+        </script>
+        </div>
         <!-- Paradox Footer Right Section -->
 
         <!--
@@ -718,6 +749,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- 多说公共 js 代码 start -->
+    <script type="text/javascript">
+        var duoshuoQuery = {
+            short_name: '来呀，快活啊～～～'
+        };
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';
+            ds.async = true;
+            ds.src = 'https://static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    <!-- 多说公共 js 代码 end -->
 
 
 

@@ -243,6 +243,12 @@
             </span>
 
             
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span class="ds-thread-count" data-thread-key="" data-count-type="comments"></span>
+                </span>
+            
 
             <!-- Post Views -->
             <span class="post_entry-views">
@@ -372,6 +378,33 @@
                     <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于我
+            </a>
+        </li>
+  	
+        <li>
+            <a href="/links/" title="小伙伴们">
+                
+                    <i class="material-icons sidebar-material-icons">group</i>
+                
+                小伙伴们
+            </a>
+        </li>
+  	
+        <li>
+            <a href="/gallery/" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">dashboard</i>
+                
+                图库
+            </a>
+        </li>
+  	
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
             </a>
         </li>
   	
@@ -514,8 +547,18 @@ It will not impact the appearance and can give developers a lot of support :)
                 document.write(fd.getFullYear());
             </script>
             &nbsp;Hexo
-        </div>
 
+        <div id="days"></div>
+        <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js">
+        //这里调用了公共库中现成的 js 文件，也可以直接调用站点中的 js 文件
+        </script>
+        <script>
+        	var begin = moment([2017,01,05]); //定义博客开始时间，从第0月开始算。。。。
+        	var now = moment(); //使用 moment() 获取当前时间
+            document.getElementById('days').innerHTML ="博客已运行 "+now.diff(begin,'days')+" 天"
+        // 使用 now.diff(begin,'days') 函数获取天数，这里天数考虑了闰年
+        </script>
+        </div>
         <!-- Paradox Footer Right Section -->
 
         <!--
@@ -571,6 +614,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- 多说公共 js 代码 start -->
+    <script type="text/javascript">
+        var duoshuoQuery = {
+            short_name: '来呀，快活啊～～～'
+        };
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';
+            ds.async = true;
+            ds.src = 'https://static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    <!-- 多说公共 js 代码 end -->
 
 
 
