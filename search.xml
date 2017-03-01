@@ -115,7 +115,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     <entry>
       <title><![CDATA[Mac上搭建基于GitHub、Coding的Hexo博客]]></title>
       <url>https://lijunyu.github.io/2017/02/07/Mac%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EGitHub%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>官网上很详细，而且还是中文啊，有木有！！！能看懂的，就别听我在这儿瞎逼逼了，举高高双手奉上<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官网帮助文档</a></p>
 <h3 id="1-Git"><a href="#1-Git" class="headerlink" title="1.Git"></a>1.Git</h3><p>什么？你说你电脑上没有装Git？OMG，竟然还有人电脑上没有装Git？！好吧，那我告诉你你怎么装！<br>请移步到我的另外一片文章<a href="https://lijunyu.coding.me/2017/03/01/Homebrew/" target="_blank" rel="external">让Mac安装软件超级方便的Homebrew</a>，看完了之后不要告诉我你不会装git</p>
 <h3 id="2-Node-js"><a href="#2-Node-js" class="headerlink" title="2.Node.js"></a>2.Node.js</h3><p>上面的都会了，这个跟上面一样的啦。</p>
@@ -191,7 +191,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     <entry>
       <title><![CDATA[让Mac安装软件超级方便的Homebrew]]></title>
       <url>https://lijunyu.github.io/2017/02/06/Homebrew/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a></p>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a></p>
 <p>包管理工具可以让你安装和更新程序变得更方便，目前在 OS X 系统中最受欢迎的包管理工具是 Homebrew.</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在安装 Homebrew 之前，需要将 Xcode Command Line Tools 安装完成，这样你就可以使用基于 Xcode Command Line Tools 编译的 Homebrew。</p>
 <p>在 terminal 中复制以下命令（不包括 $），跟随指引，将完成 Hombrew 安装。</p>
