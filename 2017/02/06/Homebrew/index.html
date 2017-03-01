@@ -221,7 +221,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Homebrew-基本使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">Homebrew 基本使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Homebrew-Cask"><span class="post-toc-number">3.</span> <span class="post-toc-text">Homebrew Cask</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装-1"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搜索"><span class="post-toc-number">5.</span> <span class="post-toc-text">搜索</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件预览插件"><span class="post-toc-number">6.</span> <span class="post-toc-text">文件预览插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OS-X-图形界面程序"><span class="post-toc-number">7.</span> <span class="post-toc-text">OS X 图形界面程序</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -385,8 +385,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a><br>包管理工具可以让你安装和更新程序变得更方便，目前在 OS X 系统中最受欢迎的包管理工具是 Homebrew.</p>
-<p><strong>安装</strong><br>在安装 Homebrew 之前，需要将 Xcode Command Line Tools 安装完成，这样你就可以使用基于 Xcode Command Line Tools 编译的 Homebrew。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a></p>
+<p>包管理工具可以让你安装和更新程序变得更方便，目前在 OS X 系统中最受欢迎的包管理工具是 Homebrew.</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在安装 Homebrew 之前，需要将 Xcode Command Line Tools 安装完成，这样你就可以使用基于 Xcode Command Line Tools 编译的 Homebrew。</p>
 <p>在 terminal 中复制以下命令（不包括 $），跟随指引，将完成 Hombrew 安装。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
 <p>紧接着，我们需要做一件事让通过 Hombrew 安装的程序的启动链接 (在 /usr/local/bin 中）可以直接运行，无需将完整路径写出。通过以下命令将 /usr/local/bin 添加至 $PATH 环境变量中:</p>
@@ -395,7 +396,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew doctor</div></pre></td></tr></table></figure>
 <p>译注：</p>
 <p>安装完成后，Homwbrew 会将本地 /usr/local 初始化为 git 的工作树，并将目录所有者变更为当前所操作的用户，将来 brew 的相关操作不需要 sudo 。</p>
-<p><strong>Homebrew 基本使用</strong><br>安装一个包，可以简单的运行：</p>
+<h2 id="Homebrew-基本使用"><a href="#Homebrew-基本使用" class="headerlink" title="Homebrew 基本使用"></a>Homebrew 基本使用</h2><p>安装一个包，可以简单的运行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install &lt;package_name&gt;</div></pre></td></tr></table></figure>
 <p>更新 Homebrew 在服务器端上的包目录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew update</div></pre></td></tr></table></figure>
@@ -407,21 +408,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew cleanup</div></pre></td></tr></table></figure>
 <p>查看你安装过的包列表（包括版本号）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew list --versions</div></pre></td></tr></table></figure>
-<p><strong>Homebrew Cask</strong><br>你已经感受到了使用 Homebrew 安装命令行程序的便利。那么接下来，我们将通过 Homebrew Cask 优雅、简单、快速的安装和管理 OS X 图形界面程序，比如 Google Chrome 和 Dropbox。</p>
-<p><strong>安装</strong><br>安装 Homebrew-cask 是如此的简单直接，运行以下命令即可完成：</p>
+<h2 id="Homebrew-Cask"><a href="#Homebrew-Cask" class="headerlink" title="Homebrew Cask"></a>Homebrew Cask</h2><p>你已经感受到了使用 Homebrew 安装命令行程序的便利。那么接下来，我们将通过 Homebrew Cask 优雅、简单、快速的安装和管理 OS X 图形界面程序，比如 Google Chrome 和 Dropbox。</p>
+<h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><p>安装 Homebrew-cask 是如此的简单直接，运行以下命令即可完成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ brew tap caskroom/cask  // 添加 Github 上的 caskroom/cask 库</div><div class="line">$ brew install brew-cask  // 安装 brew-cask</div><div class="line">$ brew cask install google-chrome // 安装 Google 浏览器</div><div class="line">$ brew update &amp;&amp; brew upgrade brew-cask &amp;&amp; brew cleanup // 更新</div></pre></td></tr></table></figure>
-<p><strong>搜索</strong></p>
-<p>如果你想查看 cask 上是否存在你需要的 app，可以到 caskroom.io 进行搜索。</p>
-<p><strong>文件预览插件</strong></p>
-<p>有些 插件 可以让 Mac 上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>如果你想查看 cask 上是否存在你需要的 app，可以到 caskroom.io 进行搜索。</p>
+<h2 id="文件预览插件"><a href="#文件预览插件" class="headerlink" title="文件预览插件"></a>文件预览插件</h2><p>有些 插件 可以让 Mac 上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ brew cask install qlcolorcode</div><div class="line">$ brew cask install qlstephen</div><div class="line">$ brew cask install qlmarkdown</div><div class="line">$ brew cask install quicklook-json</div><div class="line">$ brew cask install qlprettypatch</div><div class="line">$ brew cask install quicklook-csv</div><div class="line">$ brew cask install betterzipql</div><div class="line">$ brew cask install webp-quicklook</div><div class="line">$ brew cask install suspicious-package</div></pre></td></tr></table></figure>
-<p><strong>OS X 图形界面程序</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ brew cask install alfred</div><div class="line">$ brew cask install appcleaner</div><div class="line">$ brew cask install cheatsheet</div><div class="line">$ brew cask install dropbox</div><div class="line">$ brew cask install google-chrome</div><div class="line">$ brew cask install onepassword</div><div class="line">$ brew cask install sublime-text</div><div class="line">$ brew cask install totalfinder</div><div class="line">...</div></pre></td></tr></table></figure>
+<h2 id="OS-X-图形界面程序"><a href="#OS-X-图形界面程序" class="headerlink" title="OS X 图形界面程序"></a>OS X 图形界面程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ brew cask install alfred</div><div class="line">$ brew cask install appcleaner</div><div class="line">$ brew cask install cheatsheet</div><div class="line">$ brew cask install dropbox</div><div class="line">$ brew cask install google-chrome</div><div class="line">$ brew cask install onepassword</div><div class="line">$ brew cask install sublime-text</div><div class="line">$ brew cask install totalfinder</div><div class="line">...</div></pre></td></tr></table></figure>
 <p>译注：</p>
 <p>如果你经常使用 Alfred 启动程序，那么你会想 Alfred 可以搜索 brew cask 安装的程序，实现这些仅需运行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask alfred link</div></pre></td></tr></table></figure>
 <p>此外你还可以通过 brew cask 安装 launchrocket，来管理通过 brew 安装的 service</p>
-<p><img src="/2017/02/06/Homebrew/14823883522071/14823885116857.jpg" alt=""></p>
+<p><img src="/2017/02/06/Homebrew/14823885116857.jpg" alt=""></p>
 <p>mac 系统常用的软件安装工具就是 homebrew, 其最常用的命令如下：</p>
 <p>安装（需要 Ruby）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/Go/install)&quot;</div></pre></td></tr></table></figure>
