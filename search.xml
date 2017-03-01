@@ -6,25 +6,30 @@
     <entry>
       <title><![CDATA[在hexo中无痛使用本地图片]]></title>
       <url>https://lijunyu.github.io/2017/03/01/%E5%9C%A8hexo%E4%B8%AD%E6%97%A0%E7%97%9B%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>1 起因</p>
-<p>在 hexo 中使用本地图片是件非常让人纠结的事情，在 markdown 里的图片地址似乎永远无法和最后生成的网页保持一致。</p>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="1-起因"><a href="#1-起因" class="headerlink" title="1 起因"></a>1 起因</h2><p>在 hexo 中使用本地图片是件非常让人纠结的事情，在 markdown 里的图片地址似乎永远无法和最后生成的网页保持一致。</p>
 <p>这些问题使得我一度不愿意使用本地图片而选择用图床，但被移动运营商无耻的横条广告逼得打算上 https，图床只支持 http 就成了问题。</p>
 <p>hexo 下插入图片现在大概有几个方案</p>
-<p>1.1 放在根目录</p>
-<p>早期大部分的方案是把图片放在 source/img 下，然后在 markdown 里写 <img src="/2017/03/01/在hexo中无痛使用本地图片/img/img.png" alt="img"> 。显然这样在本地的编辑器里完全不能正确识别图片的位置。</p>
-<p>1.2 asset-image</p>
-<p>在 hexo 2.x 时出现的插件，后来被吸纳进 hexo 3 core ，用法的介绍见 资源文件夹 | Hexo 。比较尴尬的是，这种方法直接放弃了 markdown 原来的语法，使用类似 的语法，。markdown 本来有插入图片的语法不好好支持，专门用一个新的语法来插入本地图片，让我这种强迫症不太能接受。</p>
-<p>2 解决方案</p>
-<p>CodeFalling/hexo-asset-image</p>
-<p>2.1 使用</p>
-<p>首先确认 _config.yml 中有 post_asset_folder:true 。</p>
+<h3 id="1-1-放在根目录"><a href="#1-1-放在根目录" class="headerlink" title="1.1 放在根目录"></a>1.1 放在根目录</h3><p>早期大部分的方案是把图片放在 <code>source/img</code> 下，然后在 markdown 里写 <code>\!\[img\]\(/source/img/img.png\)</code>。显然这样在本地的编辑器里完全不能正确识别图片的位置。</p>
+<h3 id="1-2-asset-image"><a href="#1-2-asset-image" class="headerlink" title="1.2 asset-image"></a>1.2 asset-image</h3><p>在 hexo 2.x 时出现的插件，后来被吸纳进 <code>hexo 3 core</code> ，用法的介绍见 <a href="https://hexo.io/zh-cn/docs/asset-folders.html" target="_blank" rel="external">资源文件夹 | Hexo</a> 。比较尴尬的是，这种方法直接放弃了 markdown 原来的语法，使用类似 的语法，。markdown 本来有插入图片的语法不好好支持，专门用一个新的语法来插入本地图片，让我这种强迫症不太能接受。</p>
+<h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2 解决方案"></a>2 解决方案</h2><p><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">CodeFalling/hexo-asset-image</a></p>
+<h3 id="2-1-使用"><a href="#2-1-使用" class="headerlink" title="2.1 使用"></a>2.1 使用</h3><p>首先确认 <code>_config.yml</code> 中有 <code>post_asset_folder:true</code> 。</p>
 <p>在 hexo 目录，执行</p>
-<p>npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">https://github.com/CodeFalling/hexo-asset-image</a> –save<br>假设在</p>
-<p>MacGesture2-Publish<br>├── apppicker.jpg<br>├── logo.jpg<br>└── rules.jpg<br>MacGesture2-Publish.md<br>这样的目录结构（目录名和文章名一致），只要使用 <img src="/2017/03/01/在hexo中无痛使用本地图片/logo.jpg" alt="logo"> 就可以插入图片。</p>
+<p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
+<p>假设在</p>
+<p><code>MacGesture2-Publish
+├── apppicker.jpg
+├── logo.jpg
+└── rules.jpg</code><br>MacGesture2-Publish.md<br>这样的目录结构（目录名和文章名一致），只要使用 ![logo](MacGesture2-Publish/logo.jpg) 就可以插入图片。</p>
 <p>生成的结构为</p>
-<p>public/2015/10/18/MacGesture2-Publish<br>├── apppicker.jpg<br>├── index.html<br>├── logo.jpg<br>└── rules.jpg<br>同时，生成的 html 是</p>
-<p><img src="/2017/03/01/在hexo中无痛使用本地图片/10/18/MacGesture2-Publish/logo.jpg" alt="logo"><br>而不是愚蠢的</p>
-<p><img src="/2017/03/01/在hexo中无痛使用本地图片/logo.jpg" alt="logo"><br>值得一提的是，这个插件对于 CodeFalling/hexo-renderer-org 同样有效。</p>
+<p><code>public/2015/10/18/MacGesture2-Publish
+├── apppicker.jpg
+├── index.html
+├── logo.jpg
+└── rules.jpg</code></p>
+<p>同时，生成的 html 是</p>
+<p><code>\&lt;img src=&quot;/2015/10/18/MacGesture2-Publish/logo.jpg&quot; alt=&quot;logo&quot;\&gt;</code></p>
+<p>而不是愚蠢的<br><code>\&lt;img src=&quot;MacGesture2-Publish/logo.jpg&quot; alt=&quot;logo&quot;\&gt;</code></p>
+<p>值得一提的是，这个插件对于 CodeFalling/hexo-renderer-org 同样有效。</p>
 ]]></content>
     </entry>
     
@@ -77,14 +82,6 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
 <p>最大的好处是，可以令到即使相同的明文，相同的密钥，能产生不同的密文</p>
 <p>例如，我们用DES方式在数据保存用户密码的时候，可以另外增加一列，把向量同时保存下来，并且每次用不同的向量。这样的好处是，即使两个用户的密码是一样的，数据库保存的密文，也会不一样，就能降低猜测的可能性</p>
 <p>另外一种用法，就是类似IPsec的做法，两部主机互传数据，保证两部机的时钟同步的前提下（可以取样到分钟或更高的单位避免偏差），用时钟的变化值作为向量，就能增加被sniffer数据的解密难度</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[IDEA JSP往后台Action传值中文乱码的问题]]></title>
-      <url>https://lijunyu.github.io/2017/03/01/JSP%E5%BE%80%E5%90%8E%E5%8F%B0Action%E4%BC%A0%E5%80%BC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>在tomcat的<strong>conf/server.xml</strong>中找到<strong>Connector</strong>标签，添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">URIEncoding=&quot;UTF-8&quot;</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -143,12 +140,11 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     </entry>
     
     <entry>
-      <title><![CDATA[Mac上搭建基于GitHub、Coding的Hexo博客]]></title>
-      <url>https://lijunyu.github.io/2017/03/01/Mac%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EGitHub%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
-<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>官网上很详细，而且还是中文啊，有木有！！！能看懂的，就别听我在这儿瞎逼逼了，举高高双手奉上<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官网帮助文档</a></p>
-<h2 id="1-Git"><a href="#1-Git" class="headerlink" title="1.Git"></a>1.Git</h2><p>什么？你说你电脑上没有装Git？OMG，竟然还有人电脑上没有装Git？！好吧，那我告诉你你怎么装！</p>
-<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><h1 id="关联Github、Coding"><a href="#关联Github、Coding" class="headerlink" title="关联Github、Coding"></a>关联Github、Coding</h1><h1 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h1>]]></content>
+      <title><![CDATA[IDEA JSP往后台Action传值中文乱码的问题]]></title>
+      <url>https://lijunyu.github.io/2017/03/01/JSP%E5%BE%80%E5%90%8E%E5%8F%B0Action%E4%BC%A0%E5%80%BC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>在tomcat的<strong>conf/server.xml</strong>中找到<strong>Connector</strong>标签，添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">URIEncoding=&quot;UTF-8&quot;</div></pre></td></tr></table></figure>
+]]></content>
     </entry>
     
     <entry>
@@ -165,6 +161,15 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
       <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Dfile.encoding=UTF-8</div></pre></td></tr></table></figure>
 <p><img src="/2017/03/01/解决idea控制台中文乱码/14824587460988.jpg" alt=""></p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac上搭建基于GitHub、Coding的Hexo博客]]></title>
+      <url>https://lijunyu.github.io/2017/02/06/Mac%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EGitHub%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>官网上很详细，而且还是中文啊，有木有！！！能看懂的，就别听我在这儿瞎逼逼了，举高高双手奉上<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官网帮助文档</a></p>
+<h3 id="1-Git"><a href="#1-Git" class="headerlink" title="1.Git"></a>1.Git</h3><p>什么？你说你电脑上没有装Git？OMG，竟然还有人电脑上没有装Git？！好吧，那我告诉你你怎么装！</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h2 id="关联Github、Coding"><a href="#关联Github、Coding" class="headerlink" title="关联Github、Coding"></a>关联Github、Coding</h2><h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2>]]></content>
     </entry>
     
     <entry>
