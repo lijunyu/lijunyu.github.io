@@ -4,9 +4,152 @@
   
     
     <entry>
+      <title><![CDATA[如何用Java进行3DES加密解]]></title>
+      <url>https://lijunyu.github.io/2017/03/01/%20%E5%A6%82%E4%BD%95%E7%94%A8Java%E8%BF%9B%E8%A1%8C3DES%E5%8A%A0%E5%AF%86%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>原文地址 : <a href="http://weavesky.com/2008/01/05/java-3des/" target="_blank" rel="external">http://weavesky.com/2008/01/05/java-3des/</a></p>
+<p>最近一个合作商提出使用3DES交换数据，本来他们有现成的代码，可惜只有.net版本，我们的服务器都是Linux，而且应用都是Java。于是对照他们提供的代码改了一个Java的版本出来，主要是不熟悉3DES，折腾了一天，终于搞定。</p>
+<p>所谓3DES，就是把DES做三次，当然不是简单地DES DES DES就行了，中途有些特定的排列。这个我可不关心，呵呵，我的目的是使用它。</p>
+<p>在网上搜索了一下3DES，找到很少资料。经过朋友介绍，找到GNU Crypto和Bouncy Castle两个Java扩充包，里面应该有3DES的实现吧。</p>
+<p>从GNU Crypto入手，找到一个TripleDES的实现类，发现原来3DES还有一个名字叫DESede，在网上搜索TripleDES和DESede，呵呵，终于发现更多的资料了。</p>
+<p>Java的安全API始终那么难用，先创建一个cipher看看算法在不在吧</p>
+<pre><code>Cipher cipher = Cipher.getInstance(&quot;DESede&quot;);
+</code></pre><p>如果没有抛异常的话，就证明这个算法是有效的</p>
+<p>突然想看看JDK有没有内置DESede，于是撇开Crypto，直接测试，发现可以正确运行。在jce.jar里面找到相关的类，JDK内置了。</p>
+<p>于是直接用DES的代码来改&amp;测试，最后代码变成这样</p>
+<pre><code>SecureRandom sr = new SecureRandom();
+DESedeKeySpec dks = new DESedeKeySpec(PASSWORD_CRYPT_KEY.getBytes());
+SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(&quot;DESede&quot;);
+SecretKey securekey = keyFactory.generateSecret(dks);
+Cipher cipher = Cipher.getInstance(&quot;DESede&quot;);
+cipher.init(Cipher.ENCRYPT_MODE, securekey, sr);
+return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
+</code></pre><p>需要留意的是，要使用DESede的Spec、Factory和Cipher才行</p>
+<p>事情还没完结，合作商给过来的除了密钥之外，还有一个IV向量。搜索了一下，发现有一个IvParameterSpec类，于是代码变成这样</p>
+<pre><code>SecureRandom sr = new SecureRandom();
+DESedeKeySpec dks = new DESedeKeySpec(PASSWORD_CRYPT_KEY.getBytes());
+SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(&quot;DESede&quot;);
+SecretKey securekey = keyFactory.generateSecret(dks);
+IvParameterSpec iv = new IvParameterSpec(PASSWORD_IV.getBytes());
+Cipher cipher = Cipher.getInstance(&quot;DESede&quot;);
+cipher.init(Cipher.ENCRYPT_MODE, securekey, iv, sr);
+return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
+</code></pre><p>但是，运行报错了</p>
+<pre><code>java.security.InvalidAlgorithmParameterException: ECB mode cannot use IV
+</code></pre><p>ECB是什么呢？我的代码完全没有写ECB什么的</p>
+<p>又上网搜索，结果把DES的来龙去脉都搞清楚了</p>
+<p><a href="http://www.tropsoft.com/strongenc/des.htm" target="_blank" rel="external">http://www.tropsoft.com/strongenc/des.htm</a></p>
+<p>ECB是其中一种字串分割方式，除了DES以外，其他加密方式也会使用这种分割方式的，而Java默认产生的DES算法就是用ECB方法，ECB不需要向量，当然也就不支持向量了</p>
+<p>除了ECB，DES还支持CBC、CFB、OFB，而3DES只支持ECB和CBC两种</p>
+<p><a href="http://www.tropsoft.com/strongenc/des3.htm" target="_blank" rel="external">http://www.tropsoft.com/strongenc/des3.htm</a></p>
+<p>CBC支持并且必须有向量，具体算法这里就不说了。合作商给的.net代码没有声明CBC模式，似乎是.net默认的方式就是CBC的</p>
+<p>于是把模式改成CBC</p>
+<pre><code>Cipher cipher = Cipher.getInstance(&quot;DESede/CBC/PKCS5Padding&quot;);
+</code></pre><p>成功运行了</p>
+<p>后话：</p>
+<p>搜索的过程中，找到一个不错的讨论</p>
+<p><a href="http://www.lslnet.com/linux/dosc1/21/linux-197579.htm" target="_blank" rel="external">http://www.lslnet.com/linux/dosc1/21/linux-197579.htm</a> 在CBC（不光是DES算法）模式下，iv通过随机数（或伪随机）机制产生是一种比较常见的方法。iv的作用主要是用于产生密文的第一个block，以使最终生成的密文产生差异（明文相同的情况下），使密码攻击变得更为困难，除此之外iv并无其它用途。因此iv通过随机方式产生是一种十分简便、有效的途径。此外，在IPsec中采用了DES-CBC作为缺省的加密方式，其使用的iv是通讯包的时间戳。从原理上来说，这与随机数机制并无二致。</p>
+<p>看来，向量的作用其实就是salt</p>
+<p>最大的好处是，可以令到即使相同的明文，相同的密钥，能产生不同的密文</p>
+<p>例如，我们用DES方式在数据保存用户密码的时候，可以另外增加一列，把向量同时保存下来，并且每次用不同的向量。这样的好处是，即使两个用户的密码是一样的，数据库保存的密文，也会不一样，就能降低猜测的可能性</p>
+<p>另外一种用法，就是类似IPsec的做法，两部主机互传数据，保证两部机的时钟同步的前提下（可以取样到分钟或更高的单位避免偏差），用时钟的变化值作为向量，就能增加被sniffer数据的解密难度</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Homebrew]]></title>
+      <url>https://lijunyu.github.io/2017/03/01/Homebrew/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a><br>包管理工具可以让你安装和更新程序变得更方便，目前在 OS X 系统中最受欢迎的包管理工具是 Homebrew.</p>
+<p><strong>安装</strong><br>在安装 Homebrew 之前，需要将 Xcode Command Line Tools 安装完成，这样你就可以使用基于 Xcode Command Line Tools 编译的 Homebrew。</p>
+<p>在 terminal 中复制以下命令（不包括 $），跟随指引，将完成 Hombrew 安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
+<p>紧接着，我们需要做一件事让通过 Hombrew 安装的程序的启动链接 (在 /usr/local/bin 中）可以直接运行，无需将完整路径写出。通过以下命令将 /usr/local/bin 添加至 $PATH 环境变量中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo &apos;export PATH=&quot;/usr/local/bin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
+<p><strong>Cmd+T</strong> 打开一个新的 terminal 标签页，运行以下命令，确保 brew 运行正常。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew doctor</div></pre></td></tr></table></figure>
+<p>译注：</p>
+<p>安装完成后，Homwbrew 会将本地 /usr/local 初始化为 git 的工作树，并将目录所有者变更为当前所操作的用户，将来 brew 的相关操作不需要 sudo 。</p>
+<p><strong>Homebrew 基本使用</strong><br>安装一个包，可以简单的运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install &lt;package_name&gt;</div></pre></td></tr></table></figure>
+<p>更新 Homebrew 在服务器端上的包目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew update</div></pre></td></tr></table></figure>
+<p>查看你的包是否需要更新：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew outdated</div></pre></td></tr></table></figure>
+<p>更新包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew upgrade &lt;package_name&gt;</div></pre></td></tr></table></figure>
+<p>Homebrew 将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew cleanup</div></pre></td></tr></table></figure>
+<p>查看你安装过的包列表（包括版本号）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew list --versions</div></pre></td></tr></table></figure>
+<p><strong>Homebrew Cask</strong><br>你已经感受到了使用 Homebrew 安装命令行程序的便利。那么接下来，我们将通过 Homebrew Cask 优雅、简单、快速的安装和管理 OS X 图形界面程序，比如 Google Chrome 和 Dropbox。</p>
+<p><strong>安装</strong><br>安装 Homebrew-cask 是如此的简单直接，运行以下命令即可完成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ brew tap caskroom/cask  // 添加 Github 上的 caskroom/cask 库</div><div class="line">$ brew install brew-cask  // 安装 brew-cask</div><div class="line">$ brew cask install google-chrome // 安装 Google 浏览器</div><div class="line">$ brew update &amp;&amp; brew upgrade brew-cask &amp;&amp; brew cleanup // 更新</div></pre></td></tr></table></figure>
+<p><strong>搜索</strong></p>
+<p>如果你想查看 cask 上是否存在你需要的 app，可以到 caskroom.io 进行搜索。</p>
+<p><strong>文件预览插件</strong></p>
+<p>有些 插件 可以让 Mac 上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ brew cask install qlcolorcode</div><div class="line">$ brew cask install qlstephen</div><div class="line">$ brew cask install qlmarkdown</div><div class="line">$ brew cask install quicklook-json</div><div class="line">$ brew cask install qlprettypatch</div><div class="line">$ brew cask install quicklook-csv</div><div class="line">$ brew cask install betterzipql</div><div class="line">$ brew cask install webp-quicklook</div><div class="line">$ brew cask install suspicious-package</div></pre></td></tr></table></figure>
+<p><strong>OS X 图形界面程序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ brew cask install alfred</div><div class="line">$ brew cask install appcleaner</div><div class="line">$ brew cask install cheatsheet</div><div class="line">$ brew cask install dropbox</div><div class="line">$ brew cask install google-chrome</div><div class="line">$ brew cask install onepassword</div><div class="line">$ brew cask install sublime-text</div><div class="line">$ brew cask install totalfinder</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>译注：</p>
+<p>如果你经常使用 Alfred 启动程序，那么你会想 Alfred 可以搜索 brew cask 安装的程序，实现这些仅需运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask alfred link</div></pre></td></tr></table></figure>
+<p>此外你还可以通过 brew cask 安装 launchrocket，来管理通过 brew 安装的 service</p>
+<p><img src="media/14823883522071/14823885116857.jpg" alt=""></p>
+<p>mac 系统常用的软件安装工具就是 homebrew, 其最常用的命令如下：</p>
+<p>安装（需要 Ruby）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/Go/install)&quot;</div></pre></td></tr></table></figure>
+<p>搜索：brew search MySQL</p>
+<p>查询：brew info mysql 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等</p>
+<p>更新：brew update 这会更新 Homebrew 自己，并且使得接下来的两个操作有意义——</p>
+<p>检查过时（是否有新版本）：brew outdated 这回列出所有安装的软件里可以升级的那些</p>
+<p>升级：brew upgrade 升级所有可以升级的软件们</p>
+<p>清理：brew cleanup 清理不需要的版本极其安装包缓存</p>
+<p>常用的就这些。一般来说如果你追求新版本（不升级不舒服斯基），那么你最常用的操作序列就是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew update          # 更新 Homebrew 的信息</div><div class="line">brew outdated        # 看一下哪些软件可以升级</div><div class="line">brew upgrade &lt;xxx&gt;   # 如果不是所有的都要升级，那就这样升级指定的</div><div class="line">brew upgrade; brew cleanup    # 如果都要升级，直接升级完然后清理干净</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[IDEA JSP往后台Action传值中文乱码的问题]]></title>
+      <url>https://lijunyu.github.io/2017/03/01/JSP%E5%BE%80%E5%90%8E%E5%8F%B0Action%E4%BC%A0%E5%80%BC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>在tomcat的<strong>conf/server.xml</strong>中找到<strong>Connector</strong>标签，添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">URIEncoding=&quot;UTF-8&quot;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac上搭建基于GitHub、Coding的Hexo博客]]></title>
+      <url>https://lijunyu.github.io/2017/03/01/Mac%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EGitHub%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
+<p>#环境配置<br>官网上很详细，而且还是中文啊，有木有！！！能看懂的，就别听我在这儿瞎逼逼了，举高高双手奉上<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官网帮助文档</a></p>
+<p>##1.Git<br>什么？你说你电脑上没有装Git？OMG，竟然还有人电脑上没有装Git？！好吧，那我告诉你你怎么装！</p>
+<p>#安装Hexo</p>
+<p>#初始化</p>
+<p>#关联Github、Coding</p>
+<p>#安装主题</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mac IDEA get set 快捷键]]></title>
+      <url>https://lijunyu.github.io/2017/03/01/get%20set%20%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OSX: command+n</div><div class="line">Windows: alt+insert</div></pre></td></tr></table></figure>
+<p><img src="media/14830646298540/14830646741087.jpg" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[解决idea控制台中文乱码]]></title>
+      <url>https://lijunyu.github.io/2017/03/01/%E8%A7%A3%E5%86%B3idea%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Dfile.encoding=UTF-8</div></pre></td></tr></table></figure>
+<p><img src="media/14824586929773/14824587460988.jpg" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hello World]]></title>
       <url>https://lijunyu.github.io/2017/02/05/hello-world/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
