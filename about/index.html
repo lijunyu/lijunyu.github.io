@@ -236,7 +236,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -255,6 +255,15 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAAB3UlEQVR42u3aQW4DMQgF0Nz/0u22UpvpBzxKYr9ZRaPU5WWBwPD42uJ5YGBgYGBgYGC8DeMRPz+//8ehv97n51RjwMDAOJPxT2q7DP1ZQNU31RgwMDDOZEyS7LOE2/tmEgMGBgZGEsSqxIqBgYFxH6PavmJgYGDMGUkDmfzL63OSH+L2XhwDA+MDGb3BwNrPL5tvYGBgvD2jvOJQTK+TYcCNOyMYGBgfxZg3lgmsl2oXVLgYGBgbMSbLXpPgbqlwMTAwtmPkQc+LyEk5iIGBgTG53L9jJHDdAGNgYJzJ6LWak1B652BgYJzJyMu1+YJXdYGs3ItjYGBsypiMG5OBQdIk99I6BgbGOYxqEJMRQm8RtjnfwMDA2IiRHzRpPpPP+UgAAwPjNEa1ie2l2mpSLg8GMDAwtmasBeRJeZKyMTAwTmbMj04Sa68wxcDAOJlRHS7mZeWkKIyGChgYGMcwemVi9UouSazlJI6BgXEMo7qS1btEy1vcBcsWGBgYmzKq123zEWa1AV4wwsTAwNiCka9w5Vdm128W9+IYGBgYQUqtBjcZo2JgYGD02tT8r6rpGwMDA6PXxOZt6mRRDAMDA6M3GMiHl72RZ5SUMTAwjmF87oOBgYGBgYGB8dLnG9ZOl4RZ1RLaAAAAAElFTkSuQmCC">
+        </ul>
     
 
     <!-- Tags (bookmark) -->
@@ -351,10 +360,10 @@
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>一个不像狮子座的狮子座男生</p>
-<div id="aplayer1" class="aplayer" style="margin-bottom: 20px;"></div>
+<div id="aplayer0" class="aplayer" style="margin-bottom: 20px;"></div>
 		<script>
 			new APlayer({
-				element: document.getElementById("aplayer1"),
+				element: document.getElementById("aplayer0"),
 				narrow: false,
 				autoplay: true,
 				showlrc: 0,
@@ -458,7 +467,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yoo's avatar">
+        <img src="/img/avatar/me.png" alt="Yoo's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -476,7 +485,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:mlijunyu@gmail.com" target="_blank" title="Email Me">
                         <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         Email Me
                     </a>

@@ -263,7 +263,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -282,6 +282,15 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADnUlEQVR42u3aQXLjMAwEwPz/09lrqrJ2ZgAy0aF1crlkSWwdYIDz8en4cnwgwIEDBw4cOHDgwIHjwRwf8fH1/FdX+H5Oe+Xv37+6738WVq4FBw4cOHDc40hu82rxm3PeLyl5ks1acODAgQPHbY68uOY3ax+9hcgLPA4cOHDgeCZH0mi958tbtT0NDhw4cOB4PkfegCUoycAxHyPiwIEDB46ncbSNWTIWnDV17UbXn81KceDAgQPHC45ZoOGZn/8s34EDBw4cOEZH2261Q8MbIYYfVoQDBw4cOI5yJA3Y+++TEeFs7JjQt23hcFaKAwcOHDhijiR2MNvsmRXjfFyYv6oDLRwOHDhw4Cg56kuM4m6z+N2sjcwbSBw4cODAcYOjjS/kMYWEe7b4vMyvZqU4cODAgWPBkReqWYQ6D1XPYtn5uBMHDhw4cNzjyCNlNzacNo3crDBHgQYcOHDgwLHgyAttHjtoC3C+jLy9LFpEHDhw4MBxjSNfzGxQmCzmfdFti3f0snHgwIEDx1GOWRju1EhxVqRXi8eBAwcOHL/CkUPMtov2Y8SWqRho4sCBAweOCxwtUB47SEaKs2vmg0UcOHDgwPG3HPlFN2O7NrjQto5FGcaBAwcOHBc4NoXq7ILb52mHjzhw4MCB4zZH0lxtxoibGMRsEFm3nThw4MCB4wLHLIiQxxHy3+ZPNbvvD8NBHDhw4MCx5mjL3iaCMAs3bP4KRM0qDhw4cOC4xtEG0fJlzAZ/G9yiPOPAgQMHjqMc7eZT21btW8R8FNi+Thw4cODAcYMjL41Js5eH5GZDwE2zhwMHDhw4fodj1midBc1L7+aZi104HDhw4MCx5mjLXhtTy4eAedO4afxw4MCBA8dtjrbFasMQp0JvySs59r8DBw4cOHCMOGbRgbbdapfaouRlPpqV4sCBAweOBUdeRDdNWr5xlVynLqVtVA4HDhw4cKw58nHbrKC2G07ti8mfdpgcxIEDBw4cJcdsIypHaQtn2zSuNsxw4MCBA8dRjlnRShbcbmi1W1mzUWC07YQDBw4cONYc+fZPUgLz5q2NQWwGgnWgAQcOHDhwrDny4jork8ld2qW2fw7qfAcOHDhw4LjMcWqct4lB5PGI6EwcOHDgwPEYjnwAN2ux8jZs9hpw4MCBA8dtjvzR89HhrAFrt7XaX+HAgQMHjtscs0DDLKKdE5wNTODAgQMHjt/hcODAgQMHDhw4cODAgeNhxz/HzS/gaEbR7QAAAABJRU5ErkJggg==">
+        </ul>
     
 
     <!-- Tags (bookmark) -->
@@ -377,7 +386,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>官网上很详细，而且还是中文啊，有木有！！！能看懂的，就别听我在这儿瞎逼逼了，举高高双手奉上<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官网帮助文档</a></p>
 <h3 id="1-Git"><a href="#1-Git" class="headerlink" title="1.Git"></a>1.Git</h3><p>什么？你说你电脑上没有装Git？OMG，竟然还有人电脑上没有装Git？！好吧，那我告诉你你怎么装！<br>请移步到我的另外一片文章<a href="https://lijunyu.coding.me/2017/03/01/Homebrew/" target="_blank" rel="external">让Mac安装软件超级方便的Homebrew</a>，看完了之后不要告诉我你不会装git</p>
 <h3 id="2-Node-js"><a href="#2-Node-js" class="headerlink" title="2.Node.js"></a>2.Node.js</h3><p>上面的都会了，这个跟上面一样的啦。</p>
@@ -545,7 +554,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yoo's avatar">
+        <img src="/img/avatar/me.png" alt="Yoo's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -563,7 +572,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:mlijunyu@gmail.com" target="_blank" title="Email Me">
                         <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         Email Me
                     </a>

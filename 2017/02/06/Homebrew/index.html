@@ -263,7 +263,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -282,6 +282,15 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZUlEQVR42u3aUW7CMBAEUO5/6fYAVcmMF5uAXr4QCsTPSPYy3sfPV18PPDw8PDw8PDy8m/Ee8fXfp9r3155SfAoPDw/vCO9iqf3nnr8PeP74yet8bHh4eHgnefmw2k8lz2rvx8PDw/sOXj70aInHw8PD+yJeFKfGhTgeHh7e5/KSgSZxQxvUthO0MWvBw8PDi3n5sM6/Pnq+h4eHhxfw6pamIFxYawXY0nSFh4eHt4GXL8Qt+1WbTTsePDw8vDO89vC+jQySKPb5RvL8HTw8PLzzvOdHUG1D1fyobHIIh4eHh7eblxev+bLeNge0W0KxMeDh4eFt4+VldL4B5Mt6PllRLIKHh4e3mZdj2ih2EuCuTQQeHh7eGd5aIbvWNDA5NssjCTw8PLzdvDy6bY+11mLidjvBw8PDexdvrdhN2qHawSUF+sXPg4eHh3eE18avF0tzPB1rDQQX34OHh4e3mZcvx5P2gvlEjJqu8PDw8Lb9W89L4bykziOMfMrw8PDw7sBLgom1ACKPd+elPB4eHt67ePO2gMUQoWw4qGNcPDw8vA28PNhNCty15T4/kBs1XeHh4eG9iBf91S/bsPJ7kslajHHx8PDwDvLakHetWWoefODh4eGd5LVXskCvBbttAFE3XeHh4eG9iNe2VU2aANYO3l5QUuPh4eFt4LWbQd5idXFYVYYRUZGNh4eHd5DXLtDz6HYSRuDh4eF9Fq9tvWqH234bHh4e3v15k6K8jW6T78fDw8N7Fy9//BxfNwSciXHx8PDwNhyALS7WSxFt26CAh4eHd4b3fRceHh4eHh4eHt4Nrl/b6c5KynWfJwAAAABJRU5ErkJggg==">
+        </ul>
     
 
     <!-- Tags (bookmark) -->
@@ -377,7 +386,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a></p>
+        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a></p>
 <p>包管理工具可以让你安装和更新程序变得更方便，目前在 OS X 系统中最受欢迎的包管理工具是 Homebrew.</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在安装 Homebrew 之前，需要将 Xcode Command Line Tools 安装完成，这样你就可以使用基于 Xcode Command Line Tools 编译的 Homebrew。</p>
 <p>在 terminal 中复制以下命令（不包括 $），跟随指引，将完成 Hombrew 安装。</p>
@@ -521,7 +530,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yoo's avatar">
+        <img src="/img/avatar/me.png" alt="Yoo's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -539,7 +548,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:mlijunyu@gmail.com" target="_blank" title="Email Me">
                         <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         Email Me
                     </a>

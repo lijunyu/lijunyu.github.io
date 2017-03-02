@@ -263,7 +263,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -282,6 +282,15 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZ0lEQVR42u3aUY7CMAwFQO5/afYAiPJsJ9mCpl+oS9tMV0rCsx/Pnz4eeHh4eHh4eHh4N+M94uP1qndnXv/67lmv5xeMDQ8PD+8I78NUGzz4GnN9z+RzYWx4eHh4B3nXE3cyWSew6/tMxoaHh4d3Z16yPORTfO+14uHh4X0jr7fhroYReHh4eHfmJT/4E2r1fB40bM9a8PDw8GJeXmQ6//lofQ8PDw8v4JVbmpayk0LaqOkKDw8PbwOvWtyaf3PVwoCHh4f3v7xqWavaLtDcHAdPKfxiwMPDw9vMK9yu1UxQDmfzRgQ8PDy8zbz54+dNBjmvvDDg4eHhHeFVF4Pr+/QWjPza8sKAh4eHN+atDV4nAfGEjYeHh3eSl2+F8+k+GfqHIRZfMR4eHt5JXjWAyKm97+TPam6p8fDw8Ma8XnxQ3Vj3tuDNIAMPDw/vCG9to0B1ok+uKtwHDw8P7yCvunWelNCqgAVNV3h4eHjbeDu2uUn5qhdM4OHh4Z3nLZiIB+0FvYD4w78EDw8P7wgviR6SLXU+9Dx6KDc64OHh4R3kJWHB5EXky0Zy7YKmKzw8PLxFvLWtpb3teB5klBcGPDw8vKW8arTaeynVoteo6QoPDw9vA696VEPeXiSxbGHAw8PD28DrTcfJ8pAHCknhrdl0hYeHh7eNl0zr1TJ/tcBWbYRtZi14eHh4S3n5BD2JDHoNWIWgBA8PD+/GvF6ZPxluUmbDw8PD+y7e5A75UtFsR8DDw8M7yEvCiF5DQDLF52U2PDw8vDvwqhHAJN5NwNVmAjw8PLyTvN878PDw8PDw8PDwbnD8AaC3r1szgspgAAAAAElFTkSuQmCC">
+        </ul>
     
 
     <!-- Tags (bookmark) -->
@@ -377,7 +386,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -476,7 +485,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yoo's avatar">
+        <img src="/img/avatar/me.png" alt="Yoo's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -494,7 +503,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:mlijunyu@gmail.com" target="_blank" title="Email Me">
                         <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         Email Me
                     </a>

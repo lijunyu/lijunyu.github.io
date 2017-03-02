@@ -271,7 +271,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -290,6 +290,15 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADk0lEQVR42u3aS27cMBAFwLn/pZOtASfy6w8ZBSitDI1HImsWxOvuzy/Xl+uDAAcOHDhw4MCBAweOF3N84iv51vdPv975w1Ien/x8P1/VD3vBgQMHDhwHOH44iv7y4ueFJli9byWrKuwFBw4cOHAc43heSnJk5ptJKJ/XmfwdIeLAgQMHjhdwVO8kG8vflTPhwIEDB47/hSPZZBLPekdyfhjjwIEDB45/y5EU1JJlTZ6TPy0p/B2vleLAgQMHjvFAw/v/vjrfgQMHDhw4vnH0DrNeDJuPSlSfH+0IBw4cOHCscvRi1fNSkpJcglINeM1v4cCBAweOAxzVUYak+ZQst3roVptY0apw4MCBA8cqRzKyMD9ue4j5WN5oFzhw4MCBY5WjF7eSDeSbTJ5QjZqFITwcOHDgwHGMYx7ekqP0eaFb3IX/x4EDBw4cqxx5EMpfn48d9NpX1Wi3lmhx4MCBA0crs/SiUa/J1AxdcYMquXDgwIEDxy5HL4b14l/1QJ0EvPxox4EDBw4cJziS8JMX4PIhtq3iYP5j4MCBAweOOxy9UuCk4TQPdfmnOHDgwIHjJke+xMnx1rvfi3zVGIkDBw4cOHY5EpStgzaPhdUxi/yHLCRaHDhw4MAx4MjLfNWSYm98LS8I9tpaOHDgwIHjHMeoYdMqz+UHcLnM14LDgQMHDhz3OfKllw+5wfYmhzcOHDhw4LjJkZfk5s2k+af5tnHgwIEDx32Oaolw8t07P0l0MOPAgQMHjlWO3njBJKQlQXEytJe/HQcOHDhwnOPYGh0ox6f5oFtxFA8HDhw4cJzmyF9QDVHJnTy2bTWlmsVBHDhw4MARcyQok6G0POBVm095W6swKocDBw4cOMYcJ6JR3rIqBK34WohwOHDgwIFjqRpWfVmvjdQLjclxm7ejcODAgQPHHY7egVctHealwLztlIdGHDhw4MDxBo7qSEHSfCoHrXG0aw404MCBAweOVtspv+YL6rWv8sO+WvTEgQMHDhy7HCe20SsUJk2ppN1VLUHiwIEDB44THPnh2gtj+VhDr+zYWzMOHDhw4DjN0Tsaqy2fauMqj3n5D4ADBw4cON7GUQ1L1SJgjrIQBXHgwIEDxws4kpf1RiWqka83YIcDBw4cOO5wVIcYkqOuutxesfL5jQfbTjhw4MCBYzzQUBgUKI5H5GEvf1dCjAMHDhw4djlcOHDgwIEDBw4cOHDgeNn1G5w04csQPyojAAAAAElFTkSuQmCC">
+        </ul>
     
 
     <!-- Tags (bookmark) -->
@@ -485,7 +494,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yoo's avatar">
+        <img src="/img/avatar/me.png" alt="Yoo's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -503,7 +512,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:mlijunyu@gmail.com" target="_blank" title="Email Me">
                         <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         Email Me
                     </a>

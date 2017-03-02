@@ -271,7 +271,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -290,6 +290,15 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC30lEQVR42u3aW27CMBAFUPa/6XYBqOm946gN9skXQsTxMRLDPF5fR14vbGxsbGxsbGxs7EeyX/H1ftdPr9/vul4tX3Npz9jY2Nhbs3/56b9kX28ueUrLGO4ZGxsb+wB28pgkRBXpQRDYklCXHA02NjY2dpIk5MFp5fPY2NjY2HcFsDxdSRKJj4nb2NjY2A9mt49J0on2/SRR+YdaGjY2Nvbj2bPS/P++/tP+NjY2NvaD2e210hLIg1Z7V/R0bGxs7E3ZeWC43kpe0M95+ShndKDY2NjYB7ATQFLuz7e73iRIDhQbGxt7b3a+dDJwmacZs5bD7LixsbGx92bPGrRJGjMr8c8avcORHWxsbOwt2HnrNG8PDLcVB8v2CLCxsbFPY6+kGe06RXE/Lh4V/W1sbGzsLdizocZ2i/n7bfM4/3qwsbGxd2XPHpYHsPbe9v0bUhFsbGzsjdh5oefeschZ8lN/YdjY2Nhbs9shnhbQlp9mIzt1KoKNjY29BXtW6Flp1s4ONE9jogCGjY2NvSm7Ja0kEnmbIR/cqWdOsbGxsTdiJynBSipStGOXy1g/7gobGxt7a/ZSA3VhhfUS0vUesLGxsU9gt3/x8yOYtRlyfN1IxsbGxj6Sfb3RWWu2veo2wHoAw8bGxv5YdktKVpglFevNgyKAYWNjY384u/1D36YNbYjKn5iDsbGxsU9gt+X7elwmCHuzoZ+buyLY2NjYH85uizV3laLylGYWVrGxsbHPYddlmrjwNCsVtYnNL8eHjY2NvSm7vdpSTh608iGevLCFjY2NfQK7LeLPSjz559s1iyIUNjY29tbs9aA1G45sVytKSG0tDRsbG3sLdjJMkxR66tASNInbljM2NjY2dg5oW7azTefNZmxsbGzshD0r6K80lfOEBBsbG/tkdv6w/LDaUZ5ZGzjaMzY2NvbW7JXCTTsKeW94W0pFsLGxsbdgn3NhY2NjY2NjY2NjP+b6Bv5bw6bkTMRjAAAAAElFTkSuQmCC">
+        </ul>
     
 
     <!-- Tags (bookmark) -->
@@ -529,7 +538,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yoo's avatar">
+        <img src="/img/avatar/me.png" alt="Yoo's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -547,7 +556,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:mlijunyu@gmail.com" target="_blank" title="Email Me">
                         <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         Email Me
                     </a>
