@@ -10,7 +10,7 @@
     
     <title>
         
-            标签: 图库 | 
+            渐变效果 | 
         
         八月份的饺子
     </title>
@@ -48,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://lijunyu.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 图库 | 八月份的饺子">
+    <meta property="og:title" content="渐变效果 | 八月份的饺子">
     <meta property="og:description" content="一句话介绍不清楚自己">
 
     <!--[if lte IE 9]>
@@ -195,91 +195,263 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
     
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
         
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/thumbnail/gallary.png)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/thumbnail/渐变效果.jpg)">
     
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/03/10/高清图库分享/">高清图库分享</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-             
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/03/10/高清图库分享/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar/me.png" width="44px" height="44px" alt="Yoo's avatar">
-            </div>
-            <div>
-                <strong>Yoo</strong>
-                <span>3月 10, 2017</span>
-            </div>
+            <p class="article-headline-p">
+                渐变效果
+            </p>
         </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
+
+
+
+
+
                 
-            </span>
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
 
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="" data-count-type="comments"></span>
-                </span>
-            
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Yoo</strong>
+        <span>3月 23, 2017</span>
+    </div>
 
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZElEQVR42u3aUXKDMAwEUO5/6fYALWQlYYdkHl+ZNNg8Pmx15ePnq68DDw8PDw8PDw/vYbwjvs7uOhvnn4kHsxTuwsPDw9vCe7HUnkycA5Jf/h25+Wx4eHh4G3n5lNW7rh/9emMoz4KHh4f3SF5eXicbSf468PDw8D6XV330amCBh4eH9ym85B/+fJOYFM1vy1rw8PDwYl7eZNr/eWt/Dw8PDy/glY80xWVu8n1SZG89U4aHh4cX8PLpq43/fMzexoCHh4f3NN71xtBb1ntRRTWwwMPDw1vN6xXBSczaC2F78TEeHh7efl510OrxghsihrtiXDw8PLzFvEmDv3rgoPpCb9gY8PDw8G7i9QLZPGiYh7kvIgw8PDy8xbw8uk2W8iTC6L2swoaEh4eHt5iXL8T5Qt87WJDMPkqp8fDw8G7i9QrifMq7wovr142Hh4e3k7eC2mtfTTYhPDw8vJ28XhQblbbx73vIUUmNh4eHN+BVm/Tz8jpn5JsBHh4e3tN4c3yyteTR8IvyHQ8PD28xL79tsknkMcTkMx4eHt5OXl7UXjelkqI534ry0fDw8PDexcsj2mp8kPw1D4XLKTUeHh7eRl51S+i1047i9eLl4uHh4S3mTQKIavmbBLJ5QIyHh4f3Ll51OZ6Qqo+bxxx4eHh4+3nVRlc1os3jhkkjDQ8PD28/L1+ge62yvEm2JGvBw8PDeysviSeSGKJaxDfDCDw8PLzH8HqHsarRbT4OHh4e3n5etenVixXyIwgLD13h4eHhbWyAVQ9pVZthOeb0ezw8PLzFvO+78PDw8PDw8PDwHnD9AhHEhpKvGrFcAAAAAElFTkSuQmCC">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/AI/">AI</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Photoshop/">Photoshop</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/教程/">教程</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/艺术/">艺术</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2017/03/23/渐变效果/" class="leancloud-views_num" data-flag-title="渐变效果">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=渐变效果&url=https://lijunyu.github.io//2017/03/23/渐变效果/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=渐变效果&url=https://lijunyu.github.io//2017/03/23/渐变效果/index.html&via=Yoo" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://lijunyu.github.io//2017/03/23/渐变效果/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://lijunyu.github.io//2017/03/23/渐变效果/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=八月份的饺子&title=渐变效果&summary=一句话介绍不清楚自己&pics=https://lijunyu.github.io/img/favicon.png&url=https://lijunyu.github.io/2017/03/23/渐变效果/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>看效果先！<br><img src="/2017/03/23/渐变效果/渐变效果.jpg" alt=""><br>教程来自 <a href="http://weibo.com/5288483681/EAOwZaITL?type=comment#_rnd1490275793838" target="_blank" rel="external">@Nicolesloves</a><br><img src="/2017/03/23/渐变效果/1.png" alt=""><br><img src="/2017/03/23/渐变效果/2.png" alt=""><br><img src="/2017/03/23/渐变效果/3.png" alt=""><br><img src="/2017/03/23/渐变效果/4.png" alt=""><br><img src="/2017/03/23/渐变效果/5.png" alt=""><br><img src="/2017/03/23/渐变效果/6.png" alt=""></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key=""
+        data-url="https://lijunyu.github.io/2017/03/23/渐变效果/"
+        data-title="渐变效果">
+    </div>
+    <!-- 多说评论框 end -->
+</div>
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/03/18/渐变字效果/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-        
-        
-    
-
-    
-
-    
-        <script>
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
 
 
                     
@@ -478,6 +650,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
