@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[3D线性球体]]></title>
+      <url>https://lijunyu.github.io/2017/03/24/3D%E7%BA%BF%E6%80%A7%E7%90%83%E4%BD%93/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>还是先看效果！<br><img src="/2017/03/24/3D线性球体/3D线性球体.jpg" alt=""><br><img src="/2017/03/24/3D线性球体/3D线性球体2.jpg" alt=""><br>教程来自<a href="http://weibo.com/5435570920/EBitd53g1?type=comment#_rnd1490370658953" target="_blank" rel="external">@祝家老司机</a><br><img src="/2017/03/24/3D线性球体/1.png" alt=""><br><img src="/2017/03/24/3D线性球体/2.png" alt=""><br><img src="/2017/03/24/3D线性球体/3.png" alt=""><br><img src="/2017/03/24/3D线性球体/4.png" alt=""><br><img src="/2017/03/24/3D线性球体/5.png" alt=""><br><img src="/2017/03/24/3D线性球体/6.png" alt=""><br><img src="/2017/03/24/3D线性球体/7.png" alt=""><br><img src="/2017/03/24/3D线性球体/8.png" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[MySQL设置不区分大小写]]></title>
       <url>https://lijunyu.github.io/2017/03/24/MySQL%E8%AE%BE%E7%BD%AE%E4%B8%8D%E5%8C%BA%E5%88%86%E5%A4%A7%E5%B0%8F%E5%86%99/</url>
       <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>MySQL数据库的表名在Linux系统下是严格区分大小写的，在Windows系统下开发的程序移植到Linux系统下，如果程序中SQL语句没有严格按照大小写访问数据库表，就可能会出现找不到表的错误。</p>
