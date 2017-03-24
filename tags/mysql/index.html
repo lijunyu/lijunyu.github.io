@@ -10,7 +10,7 @@
     
     <title>
         
-            在hexo中无痛使用本地图片 | 
+            标签: mysql | 
         
         八月份的饺子
     </title>
@@ -48,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://lijunyu.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="在hexo中无痛使用本地图片 | 八月份的饺子">
+    <meta property="og:title" content="标签: mysql | 八月份的饺子">
     <meta property="og:description" content="一句话介绍不清楚自己">
 
     <!--[if lte IE 9]>
@@ -195,289 +195,93 @@
                         </button>
                     
 
-                    <!-- Post TOC -->
-
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
     
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
-    </div>
-    -->
-
-    <!-- Left aligned menu below button -->
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-起因"><span class="post-toc-number">1.</span> <span class="post-toc-text">1 起因</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-放在根目录"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 放在根目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-asset-image"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 asset-image</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-解决方案"><span class="post-toc-number">2.</span> <span class="post-toc-text">2 解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-使用"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 使用</span></a></li></ol></li></ol>
-
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
-    </ul>
-
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/thumbnail/hexo.jpg)">
-    
-            <p class="article-headline-p">
-                在hexo中无痛使用本地图片
-            </p>
-        </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>Yoo</strong>
-        <span>3月 01, 2017</span>
-    </div>
-
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">devices other</i>
-            <span class="visuallyhidden">devices other</span>
-        </button>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC3UlEQVR42u3aUVKlQAwF0Lf/TTsLUOAmwRG6D18WPps+WGVMbn++trw+2NjY2NjY2NjY2I9kf+Lr+0/1Vji/c/TEG/aMjY2NvTT74k9/8Jnzz+cv7ujOfM/Y2NjYO7DPS845IC8/SRE6+mRvz9jY2NjY58sl9+cNxmTP2NjY2NiTV5BsKF8ZGxsbG3s+VKq2BNV1zgvbn83SsLGxsR/Prsa0T/j6v+bb2NjY2A9mV6+8UCWD/rxcVcPmH1bGxsbGXpSdF4Yc32tR8uOY+T6xsbGxd2DnkW3SwFyMdYqDp17YcLgyNjY29qLsyVCp+jp6BSwvcheNEDY2NvYG7HJ0GjcPvxEMlwsbNjY29qLsvAjlg55eC3FX8NwMerGxsbFfy+6NbCb3q2WsOjwapSLY2NjYL2T3/tGvjpBy0mdwlVMRbGxs7IXYecGYjIqq8UB1tISNjY29J3sy9L8LXA0qeitgY2Nj78mex7TzlzgJLbCxsbH3Yedjo7yQJO1NfnioN5bCxsbG3oE9aRWqB3eqTUu11bl4LjY2Nvai7Lw49Y5dJiskL6V6v9CKYGNjYy/BzktIL7KtNjz5QZzku9jY2Nj7sPMiMY97J5/Jd4uNjY29A7vXMOSP77UZ+dgojxOwsbGxV2VXi0TehFTbm6RByhun0SwNGxsb+7Xs3pGa6hCq2kIk5RMbGxsbuzdmmsQJ1cC4WtIKszRsbGzshdjVOHY+nKoOrfJf2A1BLzY2NvYL2fnWqwdoqsd98gihEE5gY2NjL8quXnnJSUpR9RhQvuZFAcPGxsZeiF0tDDlvPta/K3jAxsbG3oHd22LePCSvuDcwygNjbGxs7B3Y88agN7jPB0zVwRM2NjY2ds7utQr5gZt8hISNjY2NXT0Emaw2GevPY2lsbGzsfdjzhyXfzeOH3mqHhQ0bGxt7afbkUONdQWxekG5rRbCxsbGXYO9zYWNjY2NjY2NjYz/m+gcZeVMlmGXKBwAAAABJRU5ErkJggg==">
-        </ul>
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/CodeFalling/">CodeFalling</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/hexo/">hexo</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/markdown/">markdown</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/技术/">技术</a>
-    </ul>
-    
-
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-    <!-- Leancloud Views -->
-        <a class="post_share-link" href="#">
-            <li class="mdl-menu__item">
-                <span id="/2017/03/01/在hexo中无痛使用本地图片/" class="leancloud-views_num" data-flag-title="在hexo中无痛使用本地图片">
-     &nbsp;浏览量
-</span>
-
-            </li>
-        </a>
-    
+    <div class="locate-thumbnail-symbol"></div>
 
     
         
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
     
 
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=在hexo中无痛使用本地图片&url=https://lijunyu.github.io//2017/03/01/在hexo中无痛使用本地图片/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=在hexo中无痛使用本地图片&url=https://lijunyu.github.io//2017/03/01/在hexo中无痛使用本地图片/index.html&via=Yoo" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://lijunyu.github.io//2017/03/01/在hexo中无痛使用本地图片/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://lijunyu.github.io//2017/03/01/在hexo中无痛使用本地图片/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-
-    <!-- Share QQ -->
-    
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=八月份的饺子&title=在hexo中无痛使用本地图片&summary=一句话介绍不清楚自己&pics=https://lijunyu.github.io/img/favicon.png&url=https://lijunyu.github.io/2017/03/01/在hexo中无痛使用本地图片/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 QQ
-            </li>
-        </a>
-    
-
-    <!-- Share Telegram -->
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="1-起因"><a href="#1-起因" class="headerlink" title="1 起因"></a>1 起因</h2><p>在 hexo 中使用本地图片是件非常让人纠结的事情，在 markdown 里的图片地址似乎永远无法和最后生成的网页保持一致。</p>
-<p>这些问题使得我一度不愿意使用本地图片而选择用图床，但被移动运营商无耻的横条广告逼得打算上 https，图床只支持 http 就成了问题。</p>
-<p>hexo 下插入图片现在大概有几个方案</p>
-<h3 id="1-1-放在根目录"><a href="#1-1-放在根目录" class="headerlink" title="1.1 放在根目录"></a>1.1 放在根目录</h3><p>早期大部分的方案是把图片放在 <code>source/img</code> 下，然后在 markdown 里写 <code>![img](/source/img/img.png)</code>。显然这样在本地的编辑器里完全不能正确识别图片的位置。</p>
-<h3 id="1-2-asset-image"><a href="#1-2-asset-image" class="headerlink" title="1.2 asset-image"></a>1.2 asset-image</h3><p>在 hexo 2.x 时出现的插件，后来被吸纳进 <code>hexo 3 core</code> ，用法的介绍见 <a href="https://hexo.io/zh-cn/docs/asset-folders.html" target="_blank" rel="external">资源文件夹 | Hexo</a> 。比较尴尬的是，这种方法直接放弃了 markdown 原来的语法，使用类似 的语法，。markdown 本来有插入图片的语法不好好支持，专门用一个新的语法来插入本地图片，让我这种强迫症不太能接受。</p>
-<h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2 解决方案"></a>2 解决方案</h2><p><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">CodeFalling/hexo-asset-image</a></p>
-<h3 id="2-1-使用"><a href="#2-1-使用" class="headerlink" title="2.1 使用"></a>2.1 使用</h3><p>首先确认 <code>_config.yml</code> 中有 <code>post_asset_folder:true</code> 。</p>
-<p>在 hexo 目录，执行</p>
-<p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
-<p>假设在</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MacGesture2-Publish</div><div class="line">├── apppicker.jpg</div><div class="line">├── logo.jpg</div><div class="line">└── rules.jpg</div></pre></td></tr></table></figure>
-<p>MacGesture2-Publish.md<br>这样的目录结构（目录名和文章名一致），只要使用 ![logo](MacGesture2-Publish/logo.jpg) 就可以插入图片。</p>
-<p>生成的结构为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public/2015/10/18/MacGesture2-Publish</div><div class="line">├── apppicker.jpg</div><div class="line">├── index.html</div><div class="line">├── logo.jpg</div><div class="line">└── rules.jpg</div></pre></td></tr></table></figure>
-<p>同时，生成的 html 是</p>
-<p><code>&lt;img src=&quot;/2015/10/18/MacGesture2-Publish/logo.jpg&quot; alt=&quot;logo&quot;&gt;</code></p>
-<p>而不是愚蠢的<br><code>&lt;img src=&quot;MacGesture2-Publish/logo.jpg&quot; alt=&quot;logo&quot;&gt;</code></p>
-<p>值得一提的是，这个插件对于 <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="external">CodeFalling/hexo-renderer-org</a> 同样有效。</p>
-<p><a href="http://www.tuicool.com/articles/umEBVfI" target="_blank" rel="external">【转】在hexo中无痛使用本地图片</a></p>
-
-    
-
-    
-</div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-    <!-- 使用多说评论 -->
-    <link rel="stylesheet" href="/css/duoshuo.min.css">
-<style>
-    #ds-thread #ds-reset .ds-post-button{
-        background-color: #0097A7 !important;
-    }
-    #ds-wrapper #ds-reset .ds-icons-32{
-        background-color: #0097A7 !important;
-    }
-    #ds-reset .ds-highlight {
-        color: #0097A7 !important;
-    }
-</style>
-<div id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread"
-        data-thread-key=""
-        data-url="https://lijunyu.github.io/2017/03/01/在hexo中无痛使用本地图片/"
-        data-title="在hexo中无痛使用本地图片">
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/03/24/MySQL设置不区分大小写/">MySQL设置不区分大小写</a></p>
     </div>
-    <!-- 多说评论框 end -->
-</div>
 
-
-
-
-
-                
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+             
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/03/24/MySQL设置不区分大小写/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar/me.png" width="44px" height="44px" alt="Yoo's avatar">
             </div>
+            <div>
+                <strong>Yoo</strong>
+                <span>3月 24, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                
+            </span>
 
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-        <a href="/2017/03/01/DigHuabanPicByPython/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span class="ds-thread-count" data-thread-key="" data-count-type="comments"></span>
+                </span>
+            
 
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/2017/03/01/ 如何用Java进行3DES加密解/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
         </div>
     </div>
+</div>
 
+        
+        
+    
+
+    
+
+    
+        <script>
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
+
+        locatePost = locatePost.next();
+    }
+</script>
+
+    
+</div>
 
 
                     
@@ -676,14 +480,6 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
-
-                    
-                        <!-- Footer Top Button -->
-                        <div class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
 
                     
 
