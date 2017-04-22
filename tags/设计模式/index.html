@@ -10,7 +10,7 @@
     
     <title>
         
-            立体按钮 | 
+            标签: 设计模式 | 
         
         八月份的饺子
     </title>
@@ -48,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://lijunyu.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="立体按钮 | 八月份的饺子">
+    <meta property="og:title" content="标签: 设计模式 | 八月份的饺子">
     <meta property="og:description" content="一句话介绍不清楚自己">
 
     <!--[if lte IE 9]>
@@ -195,271 +195,93 @@
                         </button>
                     
 
-                    <!-- Post TOC -->
-
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
     
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
-    </div>
-    -->
-
-    <!-- Left aligned menu below button -->
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        
-
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
-    </ul>
-
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/thumbnail/立体按钮.jpg)">
-    
-            <p class="article-headline-p">
-                立体按钮
-            </p>
-        </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar/me.png" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>Yoo</strong>
-        <span>3月 27, 2017</span>
-    </div>
-
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">devices other</i>
-            <span class="visuallyhidden">devices other</span>
-        </button>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACXUlEQVR42u3aQXLCMBAEQP7/6eQDwcysLBGo9okCY6l98Mqzevx89fHAw8PDw8PDw8P7Z7xHfDz717Pr/DHwk3OSUYq54eHh4R3hvXjUBudcT6ilrswNDw8P7yRvNmTyr/w6K3PDw8PD+0Te9TfXj/VkXDw8PLzP5bVTbwMLPDw8vE/hJS/810POgtr2xm3MWvDw8PBiXjvRk5+P9vfw8PDwAl69pWnU8m8LyW2brvDw8PA28PLhV5peK8WmvRF4eHh47+K126ry4KCNKtrAAg8PD+8Mr10EJzHrLITN4+OiMODh4eFt4+XNqllIUTSxyiADDw8P7zwvuXSyUJ491tswYhjj4uHh4d3ES8KClpTEB/lNrCMMPDw8vM28lei2Xf7edc0XtwMPDw9vMy9ZyLYl4a6NBdelolhS4+Hh4d3Kmz2g8yHbaGN2u/Hw8PDO85KpzCbaLrJnbTA8PDy8k7zZMrqNXJPWV14Shm8MeHh4eLfyilf9UWGYbRFoQwo8PDy8M7x2y1S7/J2NMoPh4eHhvZeXhxE5LD9/9hkPDw/vJG/2zWyjQHvj8lnh4eHhvZeXN/jzgpH8uh6C4OHh4Z3krUerecFYGetFwIGHh4e3mdces40FeSzbxiJ4eHh453mzVv3scb/eQhsuqfHw8PA28NogYKUZlkQbSfBRvzHg4eHhbeC1WwHypfAMuSVrwcPDw3sTL6e2263ythkeHh7ed/CSKyTR8Kyo4OHh4Z3ntU2vfbFCUmzw8PDw3strI4Bk0u2vs7KBh4eHd573fQceHh4eHh4eHt4/OH4BQ8Mf62wWSuoAAAAASUVORK5CYII=">
-        </ul>
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Photoshop/">Photoshop</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/图层样式/">图层样式</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/教程/">教程</a>
-    </ul>
-    
-
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-    <!-- Leancloud Views -->
-        <a class="post_share-link" href="#">
-            <li class="mdl-menu__item">
-                <span id="/2017/03/27/立体按钮/" class="leancloud-views_num" data-flag-title="立体按钮">
-     &nbsp;浏览量
-</span>
-
-            </li>
-        </a>
-    
+    <div class="locate-thumbnail-symbol"></div>
 
     
         
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
     
 
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=立体按钮&url=https://lijunyu.github.io//2017/03/27/立体按钮/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=立体按钮&url=https://lijunyu.github.io//2017/03/27/立体按钮/index.html&via=Yoo" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://lijunyu.github.io//2017/03/27/立体按钮/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://lijunyu.github.io//2017/03/27/立体按钮/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-
-    <!-- Share QQ -->
-    
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=八月份的饺子&title=立体按钮&summary=一句话介绍不清楚自己&pics=https://lijunyu.github.io/img/favicon.png&url=https://lijunyu.github.io/2017/03/27/立体按钮/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 QQ
-            </li>
-        </a>
-    
-
-    <!-- Share Telegram -->
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>成果如下：<br><img src="/2017/03/27/立体按钮/立体按钮.jpg" alt=""><br>教程来自<a href="http://weibo.com/ttarticle/p/show?id=2309404058434013135929#_0" target="_blank" rel="external">@小胡舵主</a></p>
-
-    
-
-    
-</div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-    <!-- 使用多说评论 -->
-    <link rel="stylesheet" href="/css/duoshuo.min.css">
-<style>
-    #ds-thread #ds-reset .ds-post-button{
-        background-color: #0097A7 !important;
-    }
-    #ds-wrapper #ds-reset .ds-icons-32{
-        background-color: #0097A7 !important;
-    }
-    #ds-reset .ds-highlight {
-        color: #0097A7 !important;
-    }
-</style>
-<div id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread"
-        data-thread-key=""
-        data-url="https://lijunyu.github.io/2017/03/27/立体按钮/"
-        data-title="立体按钮">
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/04/22/设计模式-责任链模式/">设计模式-责任链模式</a></p>
     </div>
-    <!-- 多说评论框 end -->
-</div>
 
-
-
-
-
-                
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+             
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/04/22/设计模式-责任链模式/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar/me.png" width="44px" height="44px" alt="Yoo's avatar">
             </div>
+            <div>
+                <strong>Yoo</strong>
+                <span>4月 22, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                
+            </span>
 
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-        <a href="/2017/04/22/设计模式-责任链模式/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span class="ds-thread-count" data-thread-key="" data-count-type="comments"></span>
+                </span>
+            
 
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/2017/03/25/波浪渐变/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
         </div>
     </div>
+</div>
 
+        
+        
+    
+
+    
+
+    
+        <script>
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
+
+        locatePost = locatePost.next();
+    }
+</script>
+
+    
+</div>
 
 
                     
@@ -658,14 +480,6 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
-
-                    
-                        <!-- Footer Top Button -->
-                        <div class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
 
                     
 
