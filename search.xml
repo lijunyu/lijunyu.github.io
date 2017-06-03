@@ -4,9 +4,23 @@
   
     
     <entry>
+      <title><![CDATA[查看Oracle中正在运行的存储过程]]></title>
+      <url>https://lijunyu.github.io/2017/06/03/%E6%9F%A5%E7%9C%8BOracle%E4%B8%AD%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>在实际项目中，经常会对一些大表执行一些存储过程，一时执行不完，想知道是否在执行，是否执行完了，或者不想执行了想停掉，怎么办，当然是原谅他啊。。。额，说错了，当然是杀掉它啊。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select * from v$access o where o.OBJECT like &apos;SP_%&apos; --查找正在运行的对象,获取sid</div><div class="line">select a.serial# from v$session a WHERE A.SID=sid  --通过sid 获取serial#</div><div class="line">alter system kill session &apos;sid,serial#&apos; --eg: alter system kill session &apos;123,3211&apos;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[sql影响Oracle效率的关键点]]></title>
+      <url>https://lijunyu.github.io/2017/05/23/sql%E5%BD%B1%E5%93%8DOracle%E6%95%88%E7%8E%87%E7%9A%84%E5%85%B3%E9%94%AE%E7%82%B9/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[【转】linux-lsof详解]]></title>
       <url>https://lijunyu.github.io/2017/05/02/linux-lsof%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h4 id="lsof简介"><a href="#lsof简介" class="headerlink" title="lsof简介"></a>lsof简介</h4><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。 </p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><h4 id="lsof简介"><a href="#lsof简介" class="headerlink" title="lsof简介"></a>lsof简介</h4><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。 </p>
 <h4 id="lsof使用"><a href="#lsof使用" class="headerlink" title="lsof使用"></a>lsof使用</h4><p>lsof输出信息含义<br>在终端下输入lsof即可显示系统打开的文件，因为 lsof 需要访问核心内存和各种文件，所以必须以 root 用户的身份运行它才能够充分地发挥其功能。 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">COMMAND    PID      USER   FD      TYPE     DEVICE     SIZE       NODE      NAME</div><div class="line">init       1         root  cwd      DIR       3,3       1024       2         /</div><div class="line">init       1         root  rtd      DIR       3,3       1024       2         /</div><div class="line">init       1         root  txt      REG       3,3       38432      1763452  /sbin/init</div><div class="line">init       1         root  mem      REG       3,3       106114     1091620  /lib/libdl-2.6.so</div><div class="line">init       1         root  mem      REG       3,3       7560696    1091614  /lib/libc-2.6.so</div><div class="line">init       1         root  mem      REG       3,3       79460      1091669  /lib/libselinux.so.1</div><div class="line">init       1         root  mem      REG       3,3       223280     1091668  /lib/libsepol.so.1</div><div class="line">init       1         root  mem      REG       3,3       564136     1091607  /lib/ld-2.6.so</div><div class="line">init       1         root  10u      FIFO      0,15                  1309     /dev/initctl</div></pre></td></tr></table></figure>
 <p>每行显示一个打开的文件，若不指定条件默认将显示所有进程打开的所有文件。lsof输出各列信息的意义如下：<br><strong>COMMAND</strong>：进程的名称<br><strong>PID</strong>：进程标识符<br><strong>USER</strong>：进程所有者<br><strong>FD</strong>：文件描述符，应用程序通过文件描述符识别该文件。如cwd、txt等<br><strong>TYPE</strong>：文件类型，如DIR、REG等<br><strong>DEVICE</strong>：指定磁盘的名称<br><strong>SIZE</strong>：文件的大小<br><strong>NODE</strong>：索引节点（文件在磁盘上的标识）<br><strong>NAME</strong>：打开文件的确切名称<br>其中FD 列中的文件描述符cwd 值表示应用程序的当前工作目录，这是该应用程序启动的目录，除非它本身对这个目录进行更改。<br>txt 类型的文件是程序代码，如应用程序二进制文件本身或共享库，如上列表中显示的 /sbin/init 程序。其次数值表示应用<br>程序的文件描述符，这是打开该文件时返回的一个整数。如上的最后一行文件/dev/initctl，其文件描述符为 10。u 表示该<br>文件被打开并处于读取/写入模式，而不是只读 ® 或只写 (w) 模式。同时还有大写 的W 表示该应用程序具有对整个文件的写<br>锁。该文件描述符用于确保每次只能打开一个应用程序实例。初始打开每个应用程序时，都具有三个文件描述符，从 0 到 2，<br>分别表示标准输入、输出和错误流。所以大多数应用程序所打开的文件的 FD 都是从 3 开始。<br>与 FD 列相比，Type 列则比较直观。文件和目录分别称为 REG 和 DIR。而CHR 和 BLK，分别表示字符和块设备；<br>或者 UNIX、FIFO 和 IPv4，分别表示 UNIX 域套接字、先进先出 (FIFO) 队列和网际协议 (IP) 套接字。 </p>
@@ -28,7 +42,7 @@
     <entry>
       <title><![CDATA[打开的文件过多]]></title>
       <url>https://lijunyu.github.io/2017/05/02/%E6%89%93%E5%BC%80%E7%9A%84%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%9A/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p><strong>首先普及几个知识：</strong></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p><strong>首先普及几个知识：</strong></p>
 <ol>
 <li>Linux下一切都是文件，包括输入输出设备、网络连接、socket、管道等</li>
 <li>与文件打开数最相关的是文件描述符（有的人喜欢称作文件标识符，英文为file descriptor），文件打开数的实质就是文件描述符的数量</li>
@@ -66,7 +80,7 @@
     <entry>
       <title><![CDATA[设计模式-责任链模式]]></title>
       <url>https://lijunyu.github.io/2017/04/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>　　被别人问到，自己只知道这个名字，但是完全不知道内容，竟然还是这么常用的设计的模式，丢人啊，然后找到一篇，介绍简单好理解的文章，转过来。<br>　　<a href="http://www.cnblogs.com/java-my-life/archive/2012/05/28/2516865.html" target="_blank" rel="external">【原文】《JAVA与模式》之责任链模式</a><br>　　在阎宏博士的《JAVA与模式》一书中开头是这样描述责任链（Chain of Responsibility）模式的：<br><strong>      责任链模式是一种对象的行为模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。</strong><br>　　作者举了一个击鼓传花的例子，甚是形象</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>　　被别人问到，自己只知道这个名字，但是完全不知道内容，竟然还是这么常用的设计的模式，丢人啊，然后找到一篇，介绍简单好理解的文章，转过来。<br>　　<a href="http://www.cnblogs.com/java-my-life/archive/2012/05/28/2516865.html" target="_blank" rel="external">【原文】《JAVA与模式》之责任链模式</a><br>　　在阎宏博士的《JAVA与模式》一书中开头是这样描述责任链（Chain of Responsibility）模式的：<br><strong>      责任链模式是一种对象的行为模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。</strong><br>　　作者举了一个击鼓传花的例子，甚是形象</p>
 <h3 id="从击鼓传花谈起"><a href="#从击鼓传花谈起" class="headerlink" title="从击鼓传花谈起"></a>从击鼓传花谈起</h3><p>　　击鼓传花是一种热闹而又紧张的饮酒游戏。在酒宴上宾客依次坐定位置，由一人击鼓，击鼓的地方与传花的地方是分开的，以示公正。开始击鼓时，花束就开始依次传递，鼓声一落，如果花束在某人手中，则该人就得饮酒。<br>　　比如说，贾母、贾赦、贾政、贾宝玉和贾环是五个参加击鼓传花游戏的传花者，他们组成一个环链。击鼓者将花传给贾母，开始传花游戏。花由贾母传给贾赦，由贾赦传给贾政，由贾政传给贾宝玉，又贾宝玉传给贾环，由贾环传回给贾母，如此往复，如下图所示。当鼓声停止时，手中有花的人就得执行酒令。<br><img src="http://upload-images.jianshu.io/upload_images/331652-9a178abc0595a241.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>　　击鼓传花便是责任链模式的应用。责任链可能是一条直线、一个环链或者一个树结构的一部分。</p>
 <h3 id="责任链模式的结构"><a href="#责任链模式的结构" class="headerlink" title="责任链模式的结构"></a>责任链模式的结构</h3><p>　　下面使用了一个责任链模式的最简单的实现。<br><img src="http://upload-images.jianshu.io/upload_images/331652-6f5e90cbbbf023bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -138,28 +152,28 @@
     <entry>
       <title><![CDATA[立体按钮]]></title>
       <url>https://lijunyu.github.io/2017/03/27/%E7%AB%8B%E4%BD%93%E6%8C%89%E9%92%AE/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>成果如下：<br><img src="/2017/03/27/立体按钮/立体按钮.jpg" alt=""><br>教程来自<a href="http://weibo.com/ttarticle/p/show?id=2309404058434013135929#_0" target="_blank" rel="external">@小胡舵主</a></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>成果如下：<br><img src="/2017/03/27/立体按钮/立体按钮.jpg" alt=""><br>教程来自<a href="http://weibo.com/ttarticle/p/show?id=2309404058434013135929#_0" target="_blank" rel="external">@小胡舵主</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[波浪渐变]]></title>
       <url>https://lijunyu.github.io/2017/03/25/%E6%B3%A2%E6%B5%AA%E6%B8%90%E5%8F%98/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>我做的效果先看一下，哈哈哈哈！<br><img src="/2017/03/25/波浪渐变/波浪渐变.jpg" alt=""><br>教程来自<a href="http://weibo.com/2426733953/EAFG02EKF?type=comment#_rnd1490450263677" target="_blank" rel="external">@如如酱w</a><br><img src="/2017/03/25/波浪渐变/1.png" alt=""><br><img src="/2017/03/25/波浪渐变/2.png" alt=""><br><img src="/2017/03/25/波浪渐变/3.png" alt=""><br><img src="/2017/03/25/波浪渐变/4.png" alt=""><br><img src="/2017/03/25/波浪渐变/5.png" alt=""><br><img src="/2017/03/25/波浪渐变/6.png" alt=""></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>我做的效果先看一下，哈哈哈哈！<br><img src="/2017/03/25/波浪渐变/波浪渐变.jpg" alt=""><br>教程来自<a href="http://weibo.com/2426733953/EAFG02EKF?type=comment#_rnd1490450263677" target="_blank" rel="external">@如如酱w</a><br><img src="/2017/03/25/波浪渐变/1.png" alt=""><br><img src="/2017/03/25/波浪渐变/2.png" alt=""><br><img src="/2017/03/25/波浪渐变/3.png" alt=""><br><img src="/2017/03/25/波浪渐变/4.png" alt=""><br><img src="/2017/03/25/波浪渐变/5.png" alt=""><br><img src="/2017/03/25/波浪渐变/6.png" alt=""></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[3D线性球体]]></title>
       <url>https://lijunyu.github.io/2017/03/24/3D%E7%BA%BF%E6%80%A7%E7%90%83%E4%BD%93/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>还是先看效果！<br><img src="/2017/03/24/3D线性球体/3D线性球体.jpg" alt=""><br><img src="/2017/03/24/3D线性球体/3D线性球体2.jpg" alt=""><br>教程来自<a href="http://weibo.com/5435570920/EBitd53g1?type=comment#_rnd1490370658953" target="_blank" rel="external">@祝家老司机</a><br><img src="/2017/03/24/3D线性球体/1.png" alt=""><br><img src="/2017/03/24/3D线性球体/2.png" alt=""><br><img src="/2017/03/24/3D线性球体/3.png" alt=""><br><img src="/2017/03/24/3D线性球体/4.png" alt=""><br><img src="/2017/03/24/3D线性球体/5.png" alt=""><br><img src="/2017/03/24/3D线性球体/6.png" alt=""><br><img src="/2017/03/24/3D线性球体/7.png" alt=""><br><img src="/2017/03/24/3D线性球体/8.png" alt=""></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>还是先看效果！<br><img src="/2017/03/24/3D线性球体/3D线性球体.jpg" alt=""><br><img src="/2017/03/24/3D线性球体/3D线性球体2.jpg" alt=""><br>教程来自<a href="http://weibo.com/5435570920/EBitd53g1?type=comment#_rnd1490370658953" target="_blank" rel="external">@祝家老司机</a><br><img src="/2017/03/24/3D线性球体/1.png" alt=""><br><img src="/2017/03/24/3D线性球体/2.png" alt=""><br><img src="/2017/03/24/3D线性球体/3.png" alt=""><br><img src="/2017/03/24/3D线性球体/4.png" alt=""><br><img src="/2017/03/24/3D线性球体/5.png" alt=""><br><img src="/2017/03/24/3D线性球体/6.png" alt=""><br><img src="/2017/03/24/3D线性球体/7.png" alt=""><br><img src="/2017/03/24/3D线性球体/8.png" alt=""></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[MySQL设置不区分大小写]]></title>
       <url>https://lijunyu.github.io/2017/03/24/MySQL%E8%AE%BE%E7%BD%AE%E4%B8%8D%E5%8C%BA%E5%88%86%E5%A4%A7%E5%B0%8F%E5%86%99/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>MySQL数据库的表名在Linux系统下是严格区分大小写的，在Windows系统下开发的程序移植到Linux系统下，如果程序中SQL语句没有严格按照大小写访问数据库表，就可能会出现找不到表的错误。</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>MySQL数据库的表名在Linux系统下是严格区分大小写的，在Windows系统下开发的程序移植到Linux系统下，如果程序中SQL语句没有严格按照大小写访问数据库表，就可能会出现找不到表的错误。</p>
 <p>解决办法是：修改MySQL的配置文件my.cnf，在[mysqld]部分添加如下配置选项<code>lower_case_table_names = 1</code>，重启MySQL服务即可。</p>
 <h3 id="MySQL-5-7以前的版本的修改"><a href="#MySQL-5-7以前的版本的修改" class="headerlink" title="MySQL 5.7以前的版本的修改"></a>MySQL 5.7以前的版本的修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo  vi　/etc/MySQL/my.cnf</div></pre></td></tr></table></figure>
 <p>在[mysql]</p>
@@ -175,14 +189,14 @@
     <entry>
       <title><![CDATA[渐变效果]]></title>
       <url>https://lijunyu.github.io/2017/03/23/%E6%B8%90%E5%8F%98%E6%95%88%E6%9E%9C/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>看效果先！<br><img src="/2017/03/23/渐变效果/渐变效果.jpg" alt=""><br>教程来自 <a href="http://weibo.com/5288483681/EAOwZaITL?type=comment#_rnd1490275793838" target="_blank" rel="external">@Nicolesloves</a><br><img src="/2017/03/23/渐变效果/1.png" alt=""><br><img src="/2017/03/23/渐变效果/2.png" alt=""><br><img src="/2017/03/23/渐变效果/3.png" alt=""><br><img src="/2017/03/23/渐变效果/4.png" alt=""><br><img src="/2017/03/23/渐变效果/5.png" alt=""><br><img src="/2017/03/23/渐变效果/6.png" alt=""></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>看效果先！<br><img src="/2017/03/23/渐变效果/渐变效果.jpg" alt=""><br>教程来自 <a href="http://weibo.com/5288483681/EAOwZaITL?type=comment#_rnd1490275793838" target="_blank" rel="external">@Nicolesloves</a><br><img src="/2017/03/23/渐变效果/1.png" alt=""><br><img src="/2017/03/23/渐变效果/2.png" alt=""><br><img src="/2017/03/23/渐变效果/3.png" alt=""><br><img src="/2017/03/23/渐变效果/4.png" alt=""><br><img src="/2017/03/23/渐变效果/5.png" alt=""><br><img src="/2017/03/23/渐变效果/6.png" alt=""></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[渐变字效果]]></title>
       <url>https://lijunyu.github.io/2017/03/18/%E6%B8%90%E5%8F%98%E5%AD%97%E6%95%88%E6%9E%9C/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>先给大家看看效果！！！<br><img src="/2017/03/18/渐变字效果/渐变字.jpg" alt=""></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>先给大家看看效果！！！<br><img src="/2017/03/18/渐变字效果/渐变字.jpg" alt=""></p>
 <p>教程来自 <a href="http://weibo.com/2124622522/EzDOGo3pQ" target="_blank" rel="external">@安全蛋</a></p>
 <p><img src="/2017/03/18/渐变字效果/1.png" alt=""><br><img src="/2017/03/18/渐变字效果/2.png" alt=""><br><img src="/2017/03/18/渐变字效果/3.png" alt=""><br><img src="/2017/03/18/渐变字效果/4.png" alt=""><br><img src="/2017/03/18/渐变字效果/5.png" alt=""><br><img src="/2017/03/18/渐变字效果/6.png" alt=""><br><img src="/2017/03/18/渐变字效果/7.png" alt=""><br><img src="/2017/03/18/渐变字效果/8.png" alt=""></p>
 ]]></content>
@@ -191,7 +205,7 @@
     <entry>
       <title><![CDATA[3D极简主义字效]]></title>
       <url>https://lijunyu.github.io/2017/03/17/3D%E6%9E%81%E7%AE%80%E9%A3%8E%E6%A0%BC%E5%AD%97%E6%95%88/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>先给大家看看效果！！！<br><img src="/2017/03/17/3D极简风格字效/3D极简主义字效的副本.jpg" alt=""></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>先给大家看看效果！！！<br><img src="/2017/03/17/3D极简风格字效/3D极简主义字效的副本.jpg" alt=""></p>
 <p>教程来自 <a href="http://weibo.com/u/5435570920" target="_blank" rel="external">@祝家老司机</a></p>
 <p><img src="/2017/03/17/3D极简风格字效/1.png" alt=""><br><img src="/2017/03/17/3D极简风格字效/2.png" alt=""><br><img src="/2017/03/17/3D极简风格字效/3.png" alt=""><br><img src="/2017/03/17/3D极简风格字效/4.png" alt=""><br><img src="/2017/03/17/3D极简风格字效/5.png" alt=""><br><img src="/2017/03/17/3D极简风格字效/6.png" alt=""></p>
 ]]></content>
@@ -200,7 +214,7 @@
     <entry>
       <title><![CDATA[潘洛斯三角]]></title>
       <url>https://lijunyu.github.io/2017/03/15/%E6%BD%98%E6%B4%9B%E6%96%AF%E4%B8%89%E8%A7%92/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p><a href="http://t.cn/RimegtT" target="_blank" rel="external">快速制作炫酷的潘洛斯三角</a></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p><a href="http://t.cn/RimegtT" target="_blank" rel="external">快速制作炫酷的潘洛斯三角</a></p>
 <p><img src="/2017/03/15/潘洛斯三角/红.jpg" alt=""><br><img src="/2017/03/15/潘洛斯三角/橘黄色.jpg" alt=""><br><img src="/2017/03/15/潘洛斯三角/蓝绿.jpg" alt=""><br><img src="/2017/03/15/潘洛斯三角/蓝色.jpg" alt=""><br><img src="/2017/03/15/潘洛斯三角/亮蓝.jpg" alt=""></p>
 <p>教程来自 <a href="http://weibo.com/5435570920/EzCNSp3B5?type=comment#_rnd1489851695909" target="_blank" rel="external">@祝家老司机</a></p>
 <p><img src="/2017/03/15/潘洛斯三角/1.png" alt=""><br><img src="/2017/03/15/潘洛斯三角/2.png" alt=""><br><img src="/2017/03/15/潘洛斯三角/3.png" alt=""><br><img src="/2017/03/15/潘洛斯三角/4.png" alt=""><br><img src="/2017/03/15/潘洛斯三角/5.png" alt=""><br><img src="/2017/03/15/潘洛斯三角/6.png" alt=""><br><img src="/2017/03/15/潘洛斯三角/7.png" alt=""><br><img src="/2017/03/15/潘洛斯三角/8.png" alt=""></p>
@@ -210,14 +224,14 @@
     <entry>
       <title><![CDATA[前端必备]]></title>
       <url>https://lijunyu.github.io/2017/03/11/webDeveloperessential/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="来自优秀网页设计的推荐"><a href="#来自优秀网页设计的推荐" class="headerlink" title="来自优秀网页设计的推荐"></a>来自优秀网页设计的推荐</h2><p><a href="http://bttn.surge.sh" target="_blank" rel="external">轻松实现精美按钮 bttn.surge.sh</a><br><a href="http://land-book.com" target="_blank" rel="external">网页设计灵感库 land-book.com</a><br><a href="http://theapplaunchpad.com" target="_blank" rel="external">App免费截图制作 theapplaunchpad.com</a><br><a href="http://collectui.com" target="_blank" rel="external">UI设计灵感图 collectui.com</a><br><a href="http://httpster.net" target="_blank" rel="external">网页设计灵感站 httpster.net</a><br><a href="http://quotleapp.com/pikka/" target="_blank" rel="external">色彩管理工具 quotleapp.com/pikka/</a><br><a href="http://appanimations.com" target="_blank" rel="external">动效灵感库 appanimations.com</a><br><a href="http://talkaboutdesign.com" target="_blank" rel="external">灵感库 talkaboutdesign.com</a></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><h2 id="来自优秀网页设计的推荐"><a href="#来自优秀网页设计的推荐" class="headerlink" title="来自优秀网页设计的推荐"></a>来自优秀网页设计的推荐</h2><p><a href="http://bttn.surge.sh" target="_blank" rel="external">轻松实现精美按钮 bttn.surge.sh</a><br><a href="http://land-book.com" target="_blank" rel="external">网页设计灵感库 land-book.com</a><br><a href="http://theapplaunchpad.com" target="_blank" rel="external">App免费截图制作 theapplaunchpad.com</a><br><a href="http://collectui.com" target="_blank" rel="external">UI设计灵感图 collectui.com</a><br><a href="http://httpster.net" target="_blank" rel="external">网页设计灵感站 httpster.net</a><br><a href="http://quotleapp.com/pikka/" target="_blank" rel="external">色彩管理工具 quotleapp.com/pikka/</a><br><a href="http://appanimations.com" target="_blank" rel="external">动效灵感库 appanimations.com</a><br><a href="http://talkaboutdesign.com" target="_blank" rel="external">灵感库 talkaboutdesign.com</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[光影的艺术]]></title>
       <url>https://lijunyu.github.io/2017/03/11/%E5%85%89%E5%BD%B1%E7%9A%84%E8%89%BA%E6%9C%AF/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p><a href="http://t.cn/RildA8G" target="_blank" rel="external">如何快速制作超火的几何发光效果</a></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p><a href="http://t.cn/RildA8G" target="_blank" rel="external">如何快速制作超火的几何发光效果</a></p>
 <p><img src="/2017/03/11/光影的艺术/light1.gif" alt=""><br><img src="/2017/03/11/光影的艺术/light2.gif" alt=""><br><img src="/2017/03/11/光影的艺术/light3.gif" alt=""><br><img src="/2017/03/11/光影的艺术/light4.gif" alt=""></p>
 ]]></content>
     </entry>
@@ -225,7 +239,7 @@
     <entry>
       <title><![CDATA[高清图库分享]]></title>
       <url>https://lijunyu.github.io/2017/03/10/%E9%AB%98%E6%B8%85%E5%9B%BE%E5%BA%93%E5%88%86%E4%BA%AB/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>你有没有想找一张美图，好不容易找到了，告诉你请付款，或者请买什么豆什么币兑换？<br>哈哈哈<br>我给大家带来了几个干货，保证你会爱上我，不对，是爱上这几个高清图库素材站！</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>你有没有想找一张美图，好不容易找到了，告诉你请付款，或者请买什么豆什么币兑换？<br>哈哈哈<br>我给大家带来了几个干货，保证你会爱上我，不对，是爱上这几个高清图库素材站！</p>
 <h3 id="No-1-Pexels"><a href="#No-1-Pexels" class="headerlink" title="No.1 Pexels"></a>No.1 <a href="https://www.pexels.com" target="_blank" rel="external">Pexels</a></h3><p><img src="/2017/03/10/高清图库分享/WX20170310-105746@2x.png" alt=""><br><img src="/2017/03/10/高清图库分享/WX20170310-105819@2x.png" alt=""></p>
 <h3 id="NO-2-Unsplash"><a href="#NO-2-Unsplash" class="headerlink" title="NO.2 Unsplash"></a>NO.2 <a href="https://unsplash.com" target="_blank" rel="external">Unsplash</a></h3><p><img src="/2017/03/10/高清图库分享/WX20170310-105629@2x.png" alt=""><br><img src="/2017/03/10/高清图库分享/WX20170310-105656@2x.png" alt=""></p>
 <h3 id="No-3-Librestock"><a href="#No-3-Librestock" class="headerlink" title="No.3 Librestock"></a>No.3 <a href="http://librestock.com" target="_blank" rel="external">Librestock</a></h3><p><img src="/2017/03/10/高清图库分享/WX20170310-105706@2x.png" alt=""><br><img src="/2017/03/10/高清图库分享/WX20170310-105719@2x.png" alt=""></p>
@@ -236,7 +250,7 @@
     <entry>
       <title><![CDATA[嘿，兄弟！]]></title>
       <url>https://lijunyu.github.io/2017/03/02/hibrother/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><blockquote>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><blockquote>
 <p>时间不会因为你不想走，就停止，它会从你身上碾压过去，毫不留情。</p>
 </blockquote>
 <p>腾讯出了一款新版的QQ叫TIM，第一时间分享给了好基友，今天装到到电脑上体验了一下，翻聊天记录发现了一件很神奇的事情。从2011年我买了电脑就没有重装过系统，内存条从2G升到8G，系统从win7升级到win8再升级到win10，聊天记录竟默默的被保存了下来，直到现在…</p>
@@ -276,7 +290,7 @@
     <entry>
       <title><![CDATA[爬取花瓣网精美图片]]></title>
       <url>https://lijunyu.github.io/2017/03/01/DigHuabanPicByPython/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>直接上代码：</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>直接上代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf-8</span></div><div class="line"><span class="keyword">import</span> urllib, urllib2, re, sys, os, requests</div><div class="line"></div><div class="line">path = <span class="string">r"/Users/lijunyu/PycharmProjects/Dig/手机壁纸"</span></div><div class="line">url = <span class="string">'http://huaban.com/explore/chengshijianzhubizhi/'</span></div><div class="line">i_headers = &#123;</div><div class="line">    <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36"</span>&#125;</div><div class="line">count = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="comment">#### 获取网页源码</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHtml</span><span class="params">(url)</span>:</span></div><div class="line">    page = urllib.urlopen(url)</div><div class="line">    html = page.read().decode(<span class="string">'utf-8'</span>)  <span class="comment"># 需要解码</span></div><div class="line">    <span class="keyword">return</span> html</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">urlHandle</span><span class="params">(url)</span>:</span></div><div class="line">    req = urllib2.Request(url, headers=i_headers)</div><div class="line">    html = urllib2.urlopen(req).read()</div><div class="line">    <span class="comment"># print html</span></div><div class="line">    reg = re.compile(<span class="string">r'"pin_id":(\d+),.+?"file":&#123;"id":(\d+), "farm":"farm1", "bucket":"hbimg",.+?"key":"(.*?)",.+?"type":"image/(.*?)"'</span>, re.S)</div><div class="line">    groups = re.findall(reg, html)</div><div class="line">    <span class="keyword">print</span> groups.__len__()</div><div class="line">    <span class="keyword">return</span> groups</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">imgHandle</span><span class="params">(groups)</span>:</span></div><div class="line">    <span class="keyword">if</span> groups:</div><div class="line">        <span class="keyword">for</span> att <span class="keyword">in</span> groups:</div><div class="line">            pin_id = att[<span class="number">0</span>]</div><div class="line">            <span class="comment">#### 获取跳转网页网址</span></div><div class="line">            url_str = <span class="string">r'http://huaban.com/pins/%s/'</span> % pin_id</div><div class="line">            <span class="comment">#### 获取点击图片时弹出网页的源码</span></div><div class="line">            pin_id_source = getHtml(url_str)</div><div class="line">            <span class="comment">#### 解析源码，获取原图片的网址</span></div><div class="line">            img_url_re = re.compile(<span class="string">'main-image.*?src="(.*?)"'</span>, re.S)</div><div class="line">            img_url_list = re.findall(img_url_re, pin_id_source)</div><div class="line">            <span class="keyword">try</span>:</div><div class="line">                img_url = <span class="string">'http:'</span> + img_url_list[<span class="number">0</span>]</div><div class="line">                <span class="keyword">print</span> img_url</div><div class="line">                <span class="comment">#### 获取原图片的网址，以_fw658结尾的链接并不是原图片的链接，需要把_fw658去掉</span></div><div class="line">                <span class="keyword">if</span> <span class="string">'_fw658'</span> <span class="keyword">in</span> img_url:</div><div class="line">                    img_url = img_url[:<span class="number">-6</span>]</div><div class="line">                urllib.urlretrieve(img_url, <span class="string">'手机壁纸%s.jpg'</span> % pin_id)</div><div class="line">            <span class="keyword">except</span>:</div><div class="line">                <span class="comment"># print("获取图片：%s失败，跳过，获取下一张。" % img_url)</span></div><div class="line">                <span class="keyword">continue</span></div><div class="line">            <span class="comment"># print("获取：%s成功！" % img_url)</span></div><div class="line"></div><div class="line">groups = urlHandle(url)</div><div class="line">imgHandle(groups)</div><div class="line"></div><div class="line"><span class="keyword">while</span> (groups):</div><div class="line">    count += <span class="number">1</span></div><div class="line">    <span class="keyword">print</span> count</div><div class="line">    pin_id = groups[<span class="number">-1</span>][<span class="number">0</span>]</div><div class="line">    <span class="keyword">print</span> pin_id</div><div class="line">    urltemp = url + <span class="string">'/?max='</span> + str(pin_id) + <span class="string">'&amp;limit='</span> + str(<span class="number">20</span>) + <span class="string">'&amp;wfl=1'</span></div><div class="line">    print(urltemp)</div><div class="line">    groups = urlHandle(urltemp)</div><div class="line">    <span class="comment"># print groups</span></div><div class="line">    imgHandle(groups)</div></pre></td></tr></table></figure>
 <h3 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h3><p><a href="http://blog.csdn.net/oxiangduinishuo1/article/details/52219768" target="_blank" rel="external">Python爬花瓣网图片</a><br><a href="http://www.oschina.net/code/snippet_582976_51631" target="_blank" rel="external">爬取花瓣网美女图片</a></p>
 ]]></content>
@@ -285,7 +299,7 @@
     <entry>
       <title><![CDATA[在hexo中无痛使用本地图片]]></title>
       <url>https://lijunyu.github.io/2017/03/01/%E5%9C%A8hexo%E4%B8%AD%E6%97%A0%E7%97%9B%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="1-起因"><a href="#1-起因" class="headerlink" title="1 起因"></a>1 起因</h2><p>在 hexo 中使用本地图片是件非常让人纠结的事情，在 markdown 里的图片地址似乎永远无法和最后生成的网页保持一致。</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><h2 id="1-起因"><a href="#1-起因" class="headerlink" title="1 起因"></a>1 起因</h2><p>在 hexo 中使用本地图片是件非常让人纠结的事情，在 markdown 里的图片地址似乎永远无法和最后生成的网页保持一致。</p>
 <p>这些问题使得我一度不愿意使用本地图片而选择用图床，但被移动运营商无耻的横条广告逼得打算上 https，图床只支持 http 就成了问题。</p>
 <p>hexo 下插入图片现在大概有几个方案</p>
 <h3 id="1-1-放在根目录"><a href="#1-1-放在根目录" class="headerlink" title="1.1 放在根目录"></a>1.1 放在根目录</h3><p>早期大部分的方案是把图片放在 <code>source/img</code> 下，然后在 markdown 里写 <code>![img](/source/img/img.png)</code>。显然这样在本地的编辑器里完全不能正确识别图片的位置。</p>
@@ -310,7 +324,7 @@
     <entry>
       <title><![CDATA[如何用Java进行3DES加密解]]></title>
       <url>https://lijunyu.github.io/2017/03/01/%20%E5%A6%82%E4%BD%95%E7%94%A8Java%E8%BF%9B%E8%A1%8C3DES%E5%8A%A0%E5%AF%86%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>原文地址 : <a href="http://weavesky.com/2008/01/05/java-3des/" target="_blank" rel="external">http://weavesky.com/2008/01/05/java-3des/</a></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>原文地址 : <a href="http://weavesky.com/2008/01/05/java-3des/" target="_blank" rel="external">http://weavesky.com/2008/01/05/java-3des/</a></p>
 <p>最近一个合作商提出使用3DES交换数据，本来他们有现成的代码，可惜只有.net版本，我们的服务器都是Linux，而且应用都是Java。于是对照他们提供的代码改了一个Java的版本出来，主要是不熟悉3DES，折腾了一天，终于搞定。</p>
 <p>所谓3DES，就是把DES做三次，当然不是简单地DES DES DES就行了，中途有些特定的排列。这个我可不关心，呵呵，我的目的是使用它。</p>
 <p>在网上搜索了一下3DES，找到很少资料。经过朋友介绍，找到GNU Crypto和Bouncy Castle两个Java扩充包，里面应该有3DES的实现吧。</p>
@@ -362,7 +376,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     <entry>
       <title><![CDATA[mac IDEA get set 快捷键]]></title>
       <url>https://lijunyu.github.io/2017/02/22/get%20set%20%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OSX: command+n</div><div class="line">Windows: alt+insert</div></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OSX: command+n</div><div class="line">Windows: alt+insert</div></pre></td></tr></table></figure>
 <p><img src="/2017/02/22/get set 快捷键/14830646741087.jpg" alt="14830646741087"></p>
 ]]></content>
     </entry>
@@ -370,7 +384,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     <entry>
       <title><![CDATA[IDEA JSP往后台Action传值中文乱码的问题]]></title>
       <url>https://lijunyu.github.io/2017/02/22/JSP%E5%BE%80%E5%90%8E%E5%8F%B0Action%E4%BC%A0%E5%80%BC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>在tomcat的<strong>conf/server.xml</strong>中找到<strong>Connector</strong>标签，添加</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>在tomcat的<strong>conf/server.xml</strong>中找到<strong>Connector</strong>标签，添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">URIEncoding=&quot;UTF-8&quot;</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
@@ -378,7 +392,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     <entry>
       <title><![CDATA[解决idea控制台中文乱码]]></title>
       <url>https://lijunyu.github.io/2017/02/22/%E8%A7%A3%E5%86%B3idea%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Dfile.encoding=UTF-8</div></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Dfile.encoding=UTF-8</div></pre></td></tr></table></figure>
 <p><img src="/2017/02/22/解决idea控制台中文乱码/14824587460988.jpg" alt=""></p>
 ]]></content>
     </entry>
@@ -386,7 +400,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     <entry>
       <title><![CDATA[Mac上搭建基于GitHub、Coding的Hexo博客]]></title>
       <url>https://lijunyu.github.io/2017/02/07/Mac%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EGitHub%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>站在各位大牛的肩膀上，终于搭建了自己博客，我把坑填上了，你们可以踩着我过去了。。。</p>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>官网上很详细，而且还是中文啊，有木有！！！能看懂的，就别听我在这儿瞎逼逼了，举高高双手奉上<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官网帮助文档</a></p>
 <h3 id="1-Git"><a href="#1-Git" class="headerlink" title="1.Git"></a>1.Git</h3><p>什么？你说你电脑上没有装Git？OMG，竟然还有人电脑上没有装Git？！好吧，那我告诉你你怎么装！<br>请移步到我的另外一片文章<a href="https://lijunyu.coding.me/2017/03/01/Homebrew/" target="_blank" rel="external">让Mac安装软件超级方便的Homebrew</a>，看完了之后不要告诉我你不会装git</p>
 <h3 id="2-Node-js"><a href="#2-Node-js" class="headerlink" title="2.Node.js"></a>2.Node.js</h3><p>上面的都会了，这个跟上面一样的啦。</p>
@@ -462,7 +476,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     <entry>
       <title><![CDATA[让Mac安装软件超级方便的Homebrew]]></title>
       <url>https://lijunyu.github.io/2017/02/06/Homebrew/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a></p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p><a href="http://wiki.jikexueyuan.com/project/mac-dev-setup/" target="_blank" rel="external">【转】Mac 开发配置手册</a></p>
 <p>包管理工具可以让你安装和更新程序变得更方便，目前在 OS X 系统中最受欢迎的包管理工具是 Homebrew.</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在安装 Homebrew 之前，需要将 Xcode Command Line Tools 安装完成，这样你就可以使用基于 Xcode Command Line Tools 编译的 Homebrew。</p>
 <p>在 terminal 中复制以下命令（不包括 $），跟随指引，将完成 Hombrew 安装。</p>
@@ -514,7 +528,7 @@ return new String(Hex.encodeHex(cipher.doFinal(str.getBytes())));
     <entry>
       <title><![CDATA[Hello World]]></title>
       <url>https://lijunyu.github.io/2017/02/05/hello-world/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>

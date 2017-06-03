@@ -394,7 +394,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h4 id="lsof简介"><a href="#lsof简介" class="headerlink" title="lsof简介"></a>lsof简介</h4><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。 </p>
+        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><h4 id="lsof简介"><a href="#lsof简介" class="headerlink" title="lsof简介"></a>lsof简介</h4><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。 </p>
 <h4 id="lsof使用"><a href="#lsof使用" class="headerlink" title="lsof使用"></a>lsof使用</h4><p>lsof输出信息含义<br>在终端下输入lsof即可显示系统打开的文件，因为 lsof 需要访问核心内存和各种文件，所以必须以 root 用户的身份运行它才能够充分地发挥其功能。 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">COMMAND    PID      USER   FD      TYPE     DEVICE     SIZE       NODE      NAME</div><div class="line">init       1         root  cwd      DIR       3,3       1024       2         /</div><div class="line">init       1         root  rtd      DIR       3,3       1024       2         /</div><div class="line">init       1         root  txt      REG       3,3       38432      1763452  /sbin/init</div><div class="line">init       1         root  mem      REG       3,3       106114     1091620  /lib/libdl-2.6.so</div><div class="line">init       1         root  mem      REG       3,3       7560696    1091614  /lib/libc-2.6.so</div><div class="line">init       1         root  mem      REG       3,3       79460      1091669  /lib/libselinux.so.1</div><div class="line">init       1         root  mem      REG       3,3       223280     1091668  /lib/libsepol.so.1</div><div class="line">init       1         root  mem      REG       3,3       564136     1091607  /lib/ld-2.6.so</div><div class="line">init       1         root  10u      FIFO      0,15                  1309     /dev/initctl</div></pre></td></tr></table></figure>
 <p>每行显示一个打开的文件，若不指定条件默认将显示所有进程打开的所有文件。lsof输出各列信息的意义如下：<br><strong>COMMAND</strong>：进程的名称<br><strong>PID</strong>：进程标识符<br><strong>USER</strong>：进程所有者<br><strong>FD</strong>：文件描述符，应用程序通过文件描述符识别该文件。如cwd、txt等<br><strong>TYPE</strong>：文件类型，如DIR、REG等<br><strong>DEVICE</strong>：指定磁盘的名称<br><strong>SIZE</strong>：文件的大小<br><strong>NODE</strong>：索引节点（文件在磁盘上的标识）<br><strong>NAME</strong>：打开文件的确切名称<br>其中FD 列中的文件描述符cwd 值表示应用程序的当前工作目录，这是该应用程序启动的目录，除非它本身对这个目录进行更改。<br>txt 类型的文件是程序代码，如应用程序二进制文件本身或共享库，如上列表中显示的 /sbin/init 程序。其次数值表示应用<br>程序的文件描述符，这是打开该文件时返回的一个整数。如上的最后一行文件/dev/initctl，其文件描述符为 10。u 表示该<br>文件被打开并处于读取/写入模式，而不是只读 ® 或只写 (w) 模式。同时还有大写 的W 表示该应用程序具有对整个文件的写<br>锁。该文件描述符用于确保每次只能打开一个应用程序实例。初始打开每个应用程序时，都具有三个文件描述符，从 0 到 2，<br>分别表示标准输入、输出和错误流。所以大多数应用程序所打开的文件的 FD 都是从 3 开始。<br>与 FD 列相比，Type 列则比较直观。文件和目录分别称为 REG 和 DIR。而CHR 和 BLK，分别表示字符和块设备；<br>或者 UNIX、FIFO 和 IPv4，分别表示 UNIX 域套接字、先进先出 (FIFO) 队列和网际协议 (IP) 套接字。 </p>
@@ -455,6 +455,14 @@
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2017/05/23/sql影响Oracle效率的关键点/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -554,7 +562,7 @@
         </a>
         <ul class="dropdown-menu">
             <li>
-            <a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">6</span></a>
+            <a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">6</span></a>
         </ul>
     </li>
 
@@ -608,7 +616,7 @@
     <li>
         <a href="/archives">
             文章总数
-            <span class="sidebar-badge">24</span>
+            <span class="sidebar-badge">26</span>
         </a>
     </li>
 </ul>

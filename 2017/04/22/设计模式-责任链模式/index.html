@@ -394,7 +394,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>　　被别人问到，自己只知道这个名字，但是完全不知道内容，竟然还是这么常用的设计的模式，丢人啊，然后找到一篇，介绍简单好理解的文章，转过来。<br>　　<a href="http://www.cnblogs.com/java-my-life/archive/2012/05/28/2516865.html" target="_blank" rel="external">【原文】《JAVA与模式》之责任链模式</a><br>　　在阎宏博士的《JAVA与模式》一书中开头是这样描述责任链（Chain of Responsibility）模式的：<br><strong>      责任链模式是一种对象的行为模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。</strong><br>　　作者举了一个击鼓传花的例子，甚是形象</p>
+        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>　　被别人问到，自己只知道这个名字，但是完全不知道内容，竟然还是这么常用的设计的模式，丢人啊，然后找到一篇，介绍简单好理解的文章，转过来。<br>　　<a href="http://www.cnblogs.com/java-my-life/archive/2012/05/28/2516865.html" target="_blank" rel="external">【原文】《JAVA与模式》之责任链模式</a><br>　　在阎宏博士的《JAVA与模式》一书中开头是这样描述责任链（Chain of Responsibility）模式的：<br><strong>      责任链模式是一种对象的行为模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。</strong><br>　　作者举了一个击鼓传花的例子，甚是形象</p>
 <h3 id="从击鼓传花谈起"><a href="#从击鼓传花谈起" class="headerlink" title="从击鼓传花谈起"></a>从击鼓传花谈起</h3><p>　　击鼓传花是一种热闹而又紧张的饮酒游戏。在酒宴上宾客依次坐定位置，由一人击鼓，击鼓的地方与传花的地方是分开的，以示公正。开始击鼓时，花束就开始依次传递，鼓声一落，如果花束在某人手中，则该人就得饮酒。<br>　　比如说，贾母、贾赦、贾政、贾宝玉和贾环是五个参加击鼓传花游戏的传花者，他们组成一个环链。击鼓者将花传给贾母，开始传花游戏。花由贾母传给贾赦，由贾赦传给贾政，由贾政传给贾宝玉，又贾宝玉传给贾环，由贾环传回给贾母，如此往复，如下图所示。当鼓声停止时，手中有花的人就得执行酒令。<br><img src="http://upload-images.jianshu.io/upload_images/331652-9a178abc0595a241.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>　　击鼓传花便是责任链模式的应用。责任链可能是一条直线、一个环链或者一个树结构的一部分。</p>
 <h3 id="责任链模式的结构"><a href="#责任链模式的结构" class="headerlink" title="责任链模式的结构"></a>责任链模式的结构</h3><p>　　下面使用了一个责任链模式的最简单的实现。<br><img src="http://upload-images.jianshu.io/upload_images/331652-6f5e90cbbbf023bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -612,7 +612,7 @@
         </a>
         <ul class="dropdown-menu">
             <li>
-            <a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">6</span></a>
+            <a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">6</span></a>
         </ul>
     </li>
 
@@ -666,7 +666,7 @@
     <li>
         <a href="/archives">
             文章总数
-            <span class="sidebar-badge">24</span>
+            <span class="sidebar-badge">26</span>
         </a>
     </li>
 </ul>
